@@ -1,0 +1,83 @@
+/* Op-art stripe frames for car talks, Deepfakes of Culture and the editor's note —
+   each print page rebuilt in code, one screen-tall page per print page.
+   All measurements are print pixels on a 1532 × 2408 page, times --U. */
+
+:root { --U: calc(min(63.62vh, 100vw) / 1532); }
+body { background: #fff; }
+.essay { display: block; }
+
+.sp { --off: 0px; --bars: repeating-linear-gradient(90deg, #000 0 calc(37 * var(--U)), #fff 0 calc(74 * var(--U)));
+  background: var(--bars); background-position-x: calc((100vw - 1532 * var(--U)) / 2 + var(--off));
+  display: grid; justify-content: center; }
+.sp.b { --off: calc(18 * var(--U)); }
+
+.page { --end: calc(2390 * var(--U)); position: relative; width: calc(1532 * var(--U)); height: calc(2408 * var(--U));
+  background: var(--bars); background-position-x: var(--off); overflow: hidden; font-family: var(--sans); color: #000; }
+
+/* header strip in the top stripes */
+.rh { position: absolute; left: calc(262 * var(--U)); width: calc(790 * var(--U)); top: calc(185 * var(--U)); height: calc(72 * var(--U));
+  background: #fff; display: flex; align-items: flex-end; padding: 0 0 calc(10 * var(--U)) calc(18 * var(--U));
+  font-size: calc(31 * var(--U)); line-height: 1; letter-spacing: -.01em; }
+.rh span:first-child { width: calc(462 * var(--U)); }
+
+/* left margin: horizontal bars, white tabs with vertical labels */
+.page::before { content: ""; position: absolute; left: 0; width: calc(218 * var(--U)); top: calc(440 * var(--U)); height: calc(var(--end) - 440 * var(--U));
+  background: #fff repeating-linear-gradient(180deg, #000 0 calc(37 * var(--U)), #fff 0 calc(73 * var(--U))) 0 calc(38 * var(--U)) / 100% calc(100% - 38 * var(--U)) no-repeat; }
+.ll span { position: absolute; z-index: 2; left: calc(97 * var(--U)); width: calc(73 * var(--U)); background: #fff;
+  writing-mode: vertical-rl; font-size: calc(31 * var(--U)); line-height: calc(73 * var(--U)); padding-top: calc(12 * var(--U)); white-space: nowrap; }
+.ll span:first-child { top: calc(1278 * var(--U)); height: calc(294 * var(--U)); }
+.ll span:last-child  { top: calc(1720 * var(--U)); height: calc(292 * var(--U)); }
+
+/* right margin: black rule, bars, label tab reaching up into the stripes */
+.page::after { content: ""; position: absolute; left: calc(1255 * var(--U)); width: calc(114 * var(--U)); top: calc(440 * var(--U)); height: calc(var(--end) - 440 * var(--U));
+  background:
+    linear-gradient(#000, #000) 0 calc(665 * var(--U)) / calc(38 * var(--U)) 100% no-repeat,
+    repeating-linear-gradient(180deg, #000 0 calc(37 * var(--U)), #fff 0 calc(73 * var(--U))) calc(38 * var(--U)) calc(38 * var(--U)) / calc(76 * var(--U)) calc(100% - 38 * var(--U)) no-repeat,
+    #fff; }
+.b .page::after { background:
+    linear-gradient(#000, #000) calc(18 * var(--U)) calc(160 * var(--U)) / calc(20 * var(--U)) calc(157 * var(--U)) no-repeat,
+    linear-gradient(#000, #000) calc(18 * var(--U)) calc(665 * var(--U)) / calc(20 * var(--U)) 100% no-repeat,
+    repeating-linear-gradient(180deg, #000 0 calc(37 * var(--U)), #fff 0 calc(73 * var(--U))) calc(58 * var(--U)) calc(38 * var(--U)) / calc(56 * var(--U)) calc(100% - 38 * var(--U)) no-repeat,
+    #fff; }
+.lr { position: absolute; z-index: 2; left: calc(1192 * var(--U)); width: calc(73 * var(--U)); top: calc(295 * var(--U)); height: calc(810 * var(--U));
+  background: #fff; writing-mode: vertical-rl; font-size: calc(31 * var(--U)); line-height: calc(73 * var(--U)); white-space: nowrap; }
+.b .lr { left: calc(1238 * var(--U)); background: linear-gradient(#fff, #fff) 0 0 / 100% calc(145 * var(--U)) no-repeat; }
+.lr span { position: absolute; top: calc(12 * var(--U)); }
+.lr span:last-child { top: calc(475 * var(--U)); }
+
+/* the white text column */
+.col { position: absolute; z-index: 1; left: calc(218 * var(--U)); width: calc(1037 * var(--U)); top: calc(440 * var(--U)); height: calc(var(--end) - 440 * var(--U));
+  background: #fff; padding: calc(52 * var(--U)) calc(45 * var(--U)) calc(40 * var(--U)) calc(62 * var(--U)); overflow: hidden;
+  font-size: calc(46.5 * var(--U)); line-height: 1.255; letter-spacing: -.012em; }
+.col p { margin: 0; text-indent: 1.2em; }
+.col p.c { text-indent: 0; }
+.col .gap { height: 1.255em; }
+
+.t1, .dek, .t2 { margin: 0; font-weight: 400; }
+.t1 { font-size: 1.55em; line-height: 1.05; letter-spacing: -.02em; margin-bottom: .45em; }
+.t1 span, .dek span { display: table; border-bottom: calc(3 * var(--U)) solid #000; }
+.col .dek { margin: -.35em 0 1.2em; line-height: 1.32; text-indent: 0; }
+.dek span:first-child { padding-left: .45em; }
+.t2 { font-size: 1.55em; line-height: 1.1; letter-spacing: -.02em; margin: .55em 0 .5em 1.2em; }
+.t2 span { border-bottom: calc(3 * var(--U)) solid #000; }
+.u span { text-decoration: underline; text-decoration-thickness: calc(3 * var(--U)); text-underline-offset: calc(9 * var(--U)); }
+
+.fig { width: var(--w); margin: calc(52 * var(--U)) 0 calc(56 * var(--U)); position: relative; left: calc(518 * var(--U) - 62 * var(--U)); transform: translateX(-50%); }
+.fig img { display: block; width: 100%; height: auto; }
+.fig.big { margin-bottom: 0; }
+.col:has(.fig.big) { overflow: visible; }
+
+/* phones: the page fills the width */
+@media (max-aspect-ratio: 1532/2408) { :root { --U: calc(100vw / 1532); } }
+.lr span.long { top: calc(440 * var(--U)); font-size: calc(25 * var(--U)); }
+.lr:has(.long) { height: calc(1000 * var(--U)); }
+
+/* one continuous stripe background behind all pages: no seams or jumps from page to page */
+.essay { position: relative; overflow: hidden; background: #fff; }
+/* the stripe field starts a whole number of stripes left of the page edge, so it lines up with the page exactly */
+.essay::before { content: ""; position: absolute; top: 0; bottom: 0; z-index: 0;
+  left: calc(50% - 766 * var(--U) - 74 * 40 * var(--U)); width: calc(74 * 100 * var(--U));
+  background: repeating-linear-gradient(90deg, #000 0 calc(37 * var(--U)), #fff 0 calc(74 * var(--U))); }
+.sp { position: relative; z-index: 1; }
+.sp, .sp.b { --off: 0px; background: none; }
+.page { background: none; }

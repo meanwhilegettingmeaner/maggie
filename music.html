@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music — MAGGIE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  body { background: #000; color: #fff; }
+  .nav { background: #000; color: #fff; }
+  .nav-row.cats a:nth-child(9n+4) { outline: 1px solid #fff; }
+  .nav-row a { color: #000; } .nav .nav-logo { color: #fff; }
+  .nav-row.cats a:is(:nth-child(9n+2), :nth-child(9n+4), :nth-child(9n+5), :nth-child(9n+7)) { color: #fff; }
+  .tracks { padding: 40px 4vw 90px; font-family: var(--sans); }
+  .tracks h1 { display: flex; justify-content: space-between; font-weight: 400; font-size: 14px; letter-spacing: .06em; border-bottom: 1px solid #fff; padding-bottom: 10px; margin: 0 0 6px; }
+  .tracks p.note { font-size: 13px; color: #aaa; margin: 0 0 18px; }
+  .tracks ol { margin: 0; padding: 0; list-style: none; counter-reset: t; font-size: 15px; }
+  .tracks li { counter-increment: t; display: grid; grid-template-columns: 34px 1fr 1fr 20px; gap: 12px; padding: 7px 0; border-bottom: 1px solid #333; cursor: pointer; }
+  .tracks li::before { content: counter(t, decimal-leading-zero); color: var(--green); font-variant-numeric: tabular-nums; }
+  .tracks b { font-weight: 400; }
+  .tracks li i { font-style: normal; color: var(--green); opacity: 0; }
+  .tracks li:hover, .tracks li:focus-visible { color: var(--green); outline: none; }
+  .tracks li:hover i, .tracks li.now i { opacity: 1; }
+  .tracks li.now { color: var(--green); }
+  @media (max-width: 560px) { .tracks li { grid-template-columns: 30px 1fr 20px; } .tracks li span { grid-column: 2; color: #aaa; } .tracks li i { grid-column: 3; grid-row: 1; } }
+</style>
+</head>
+<body data-root="" data-page="music">
+<main>
+  <section class="tracks" aria-labelledby="tt">
+    <h1 id="tt"><span>TOP TRACKS</span><span>MAGGIE PICKS</span><span>NOVEMBER</span></h1>
+    <ol data-tracklist></ol>
+  </section>
+</main>
+<script src="js/main.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>

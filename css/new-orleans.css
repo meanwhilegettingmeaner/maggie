@@ -1,0 +1,41 @@
+/* New Orleans — a swipeable photo reel, full height, black */
+
+body { background: #000; color: #fff; }
+.nav { background: #000; color: #fff; }
+.nav-row:first-child { border-color: #fff; }
+
+.reel { position: relative; height: calc(100svh - var(--bar-h)); display: flex; flex-direction: column; }
+.reel h1 {
+  position: absolute; z-index: 2; left: 0; right: 0; bottom: 64px; margin: 0; text-align: center; pointer-events: none;
+  font-family: var(--sans); font-weight: 400; font-size: clamp(16px, 2.2vw, 26px); letter-spacing: .08em;
+  mix-blend-mode: difference;
+}
+.track {
+  flex: 1; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.track::-webkit-scrollbar { display: none; }
+.track figure { flex: 0 0 100%; margin: 0; scroll-snap-align: start; display: grid; place-items: center; padding: 16px; }
+.track img { box-shadow: 0 0 0 1px #fff, 0 0 26px 6px rgba(255,255,255,.22), 0 0 70px 20px rgba(255,104,248,.25); max-height: calc(100svh - var(--bar-h) - 120px); width: auto; object-fit: contain; }
+
+.controls { display: flex; justify-content: center; align-items: center; gap: 18px; height: 56px; font-variant-numeric: tabular-nums; }
+.controls button {
+  background: none; color: #fff; border: 1.5px solid #fff; border-radius: 999px; width: 44px; height: 32px;
+  font-size: 18px; cursor: pointer;
+}
+.controls button:hover { background: var(--magenta); }
+
+.turn { background: #000; color: #fff; border-color: #fff; }
+.turn a:hover span { background: var(--magenta); }
+
+/* the video slide */
+.track figure.vid { grid-template-rows: auto 1fr; gap: 10px; }
+.vid figcaption { order: -1; }
+.track video { max-height: calc(100svh - var(--bar-h) - 150px); max-width: 100%; width: auto; cursor: pointer; background: #000;
+  box-shadow: 0 0 0 1px #fff, 0 0 26px 6px rgba(255,255,255,.22), 0 0 70px 20px rgba(255,104,248,.25); }
+
+.vid figcaption { font: 13px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: #ccc; }
+.track video { max-height: calc(100svh - 300px); }
+/* menu on black: text on light tags is black, Conversations gets a white outline */
+.nav-row a { color: #000; } .nav .nav-logo { color: #fff; }
+.nav-row.cats a:is(:nth-child(9n+2), :nth-child(9n+4), :nth-child(9n+5), :nth-child(9n+7)) { color: #fff; }
+.nav-row.cats a:nth-child(9n+4) { outline: 1px solid #fff; }

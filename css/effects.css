@@ -1,0 +1,78 @@
+/* =========================================================
+   MAGGIE — Effects
+   CSS versions of InDesign's Object > Effects panel.
+   Add a class to anything:  <img class="fx-drop-shadow fx-feather">
+   Each one is tuned the way InDesign's defaults look:
+   angle 135°, Multiply shadows, Screen glows.
+   ========================================================= */
+
+:root {
+  --fx-shadow: rgba(0, 0, 0, .75);   /* InDesign drop shadow: black, Multiply, 75% */
+  --fx-glow: #ffff8c;                /* InDesign outer/inner glow default yellow */
+  --fx-hi: rgba(255, 255, 255, .95); /* bevel highlight (Screen) */
+  --fx-lo: rgba(0, 0, 0, .55);       /* bevel shadow (Multiply) */
+}
+
+/* Drop Shadow — distance 7pt, size 5pt, angle 135° */
+.fx-drop-shadow { box-shadow: 7px 7px 5px var(--fx-shadow); }
+.fx-drop-shadow-soft { box-shadow: 10px 12px 18px rgba(0,0,0,.45); }
+.fx-drop-shadow-hard { box-shadow: 8px 8px 0 #000; }
+/* for type and cut-out shapes, follow the shape instead of the box */
+.fx-drop-shadow-shape { filter: drop-shadow(5px 5px 3px var(--fx-shadow)); }
+.fx-text-shadow { text-shadow: 3px 3px 2px var(--fx-shadow); }
+
+/* Inner Shadow */
+.fx-inner-shadow { box-shadow: inset 6px 6px 8px var(--fx-shadow); }
+
+/* Outer Glow — Screen, 75%, size 7pt */
+.fx-outer-glow { box-shadow: 0 0 10px 3px var(--fx-glow), 0 0 22px 6px color-mix(in srgb, var(--fx-glow) 50%, transparent); }
+.fx-outer-glow-pink { --fx-glow: #ff68f8; }
+.fx-outer-glow-green { --fx-glow: #00ff00; }
+.fx-text-glow { text-shadow: 0 0 6px var(--fx-glow), 0 0 14px var(--fx-glow); }
+
+/* Inner Glow — source: edge */
+.fx-inner-glow { box-shadow: inset 0 0 14px 4px var(--fx-glow); }
+
+/* Bevel and Emboss — Inner Bevel, Smooth, depth 100%, angle 120°, altitude 30° */
+.fx-bevel {
+  background-image: linear-gradient(160deg, rgba(255,255,255,.75), rgba(255,255,255,0) 45%, rgba(0,0,0,.18));
+  box-shadow: inset 2px 2px 1px var(--fx-hi), inset -2px -3px 2px var(--fx-lo), inset 0 0 0 1px rgba(0,0,0,.25);
+}
+/* Emboss — raised from the page on both sides */
+.fx-emboss {
+  box-shadow: inset 2px 2px 1px var(--fx-hi), inset -2px -2px 2px var(--fx-lo),
+              -2px -2px 1px var(--fx-hi), 3px 3px 3px var(--fx-lo);
+}
+/* Pillow Emboss — sunk in at the edge, raised in the middle */
+.fx-pillow { box-shadow: inset -3px -3px 3px var(--fx-hi), inset 3px 3px 4px var(--fx-lo), 0 0 0 1px #0003; }
+/* the glossy gel-button bevel all over the print layouts */
+.fx-gel {
+  background-image: linear-gradient(180deg, #fff 0%, #f4f4f4 45%, #cfcfcf 55%, #e9e9e9 100%);
+  box-shadow: inset 0 1px 0 #fff, inset 0 -2px 3px rgba(0,0,0,.25), 3px 4px 0 #444;
+}
+
+/* Satin — the wavy inner sheen */
+.fx-satin { position: relative; isolation: isolate; }
+.fx-satin::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; mix-blend-mode: multiply;
+  background: repeating-linear-gradient(120deg, rgba(0,0,0,0) 0 18px, rgba(0,0,0,.22) 28px, rgba(0,0,0,0) 40px);
+  filter: blur(4px);
+}
+
+/* Basic Feather — soft edges all round (width ~ 6% of the box) */
+.fx-feather {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent),
+                      linear-gradient(180deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+/* Directional Feather — one edge only */
+.fx-feather-left   { -webkit-mask-image: linear-gradient(90deg, transparent, #000 30%); mask-image: linear-gradient(90deg, transparent, #000 30%); }
+.fx-feather-bottom { -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent); mask-image: linear-gradient(180deg, #000 60%, transparent); }
+/* Gradient Feather — radial */
+.fx-feather-radial { -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 72%); mask-image: radial-gradient(ellipse at center, #000 45%, transparent 72%); }
+
+/* Strokes — InDesign stroke types */
+.fx-stroke-thick-thin { border: 6px double #000; outline: 1px solid #000; outline-offset: 3px; }
+.fx-stroke-dashed { border: 3px dashed var(--magenta, #f0f); }
+.fx-stroke-dots { border: 5px dotted #000; }
+.fx-stroke-rings { box-shadow: 0 0 0 3px #fff, 0 0 0 5px var(--magenta, #f0f), 0 0 0 9px #fff, 0 0 0 11px #000; }

@@ -1,0 +1,16 @@
+/* Privacy, Terms, Stockists: plain reading pages in the site's white / black / highlight style */
+body { background: #fff; color: #000; }
+.info { max-width: 720px; margin: 0 auto; padding: 46px clamp(18px, 4vw, 40px) 90px; font: 16px/1.55 var(--sans); }
+.info h1 { font: 400 clamp(44px, 8vw, 76px)/.9 var(--serif); margin: 0 0 10px; }
+.info .upd { font-size: 13px; color: #555; margin: 0 0 34px; }
+.info h2 { font: 400 15px/1.3 var(--serif); margin: 34px 0 10px; }
+.info h2 span { background: var(--yellow); padding: 1px .35em; }
+.info p, .info li { margin: 0 0 12px; }
+.info ul { padding-left: 1.2em; margin: 0 0 12px; }
+.info a { color: inherit; text-underline-offset: 3px; }
+.info a:hover { background: var(--yellow); }
+.info .draft { border: 1px solid #000; border-radius: 999px; display: inline-block; padding: 4px 14px; font-size: 13px; margin: 0 0 26px; }
+.shops { list-style: none; padding: 0 !important; border-top: 1px solid #000; }
+.shops li { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #000; margin: 0 !important; }
+.shops li span:last-child { text-align: right; }
+@media (max-width: 560px) { .shops li { grid-template-columns: 1fr; gap: 2px; } .shops li span:last-child { text-align: left; } }

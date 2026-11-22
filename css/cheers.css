@@ -1,0 +1,71 @@
+/* cheers — Gmail as a journal. Rounded browser window with the dashed
+   gold/pastel frame from the print spreads. */
+
+body { background: #e9e9e9; }
+main { padding: calc(var(--bar-h) + 3vw) 3vw 0; }
+
+.window {
+  max-width: 1100px; margin: 0 auto 4vw; background: #fff; position: relative;
+  border-radius: 64px; padding: clamp(18px, 4vw, 54px);
+  border: 22px solid transparent;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px #0002, inset 8px 10px 18px rgba(0,0,0,.18), 0 0 0 1px #0003, 0 0 30px 14px rgba(255,215,37,.55), 0 26px 40px rgba(0,0,0,.35);
+}
+/* the fat dashed border: gold dashes over a pastel rainbow */
+.window::before {
+  content: ""; position: absolute; inset: -22px; border-radius: 64px; z-index: -1;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 120px, transparent 120px 150px) top / 100% 22px no-repeat,
+    repeating-linear-gradient(90deg, var(--gold) 0 120px, transparent 120px 150px) bottom / 100% 22px no-repeat,
+    repeating-linear-gradient(180deg, var(--gold) 0 120px, transparent 120px 150px) left / 22px 100% no-repeat,
+    repeating-linear-gradient(180deg, var(--gold) 0 120px, transparent 120px 150px) right / 22px 100% no-repeat,
+    linear-gradient(135deg, #bfe0f5, #f6f2c4 30%, #d9efc5 50%, #fbd3e9 75%, #e2d9ff);
+}
+
+.chrome-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; border-bottom: 1.5px solid #aaa; padding-bottom: 12px; }
+.gmail { font-family: Arial, sans-serif; font-size: 28px; color: #666; }
+.chip {
+  display: inline-block; font-family: Arial, sans-serif; font-size: 14px; color: #444; font-weight: 400;
+  background: linear-gradient(#fff, #ddd); border: 1px solid #888; border-radius: 999px; padding: .35em .9em;
+  box-shadow: 3px 4px 0 #555;
+}
+
+.mail { font-family: Arial, sans-serif; }
+.subject { font-size: 20px; color: #000; font-weight: 700; margin: 16px 0 10px; }
+.meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 14px; border-top: 1.5px solid #aaa; padding-top: 10px; }
+
+.letter {
+  max-width: 560px; margin: 36px 0 30px auto;
+  font-family: "Comic Sans MS", "Comic Sans", "Comic Neue", "Chalkboard SE", cursive;
+  text-transform: uppercase; font-size: 17px; line-height: 1.45;
+}
+.letter p { margin: 0 0 1.1em; }
+.jersey { color: var(--magenta); background: var(--lime); overflow: hidden; white-space: nowrap; font-weight: 700; }
+
+.inbox-h { margin: 30px 0 12px; }
+.inbox { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid #aaa; font-family: Arial, sans-serif; }
+.inbox li { border-bottom: 1px solid #ccc; }
+.inbox summary {
+  display: grid; grid-template-columns: 90px 1fr auto; gap: 14px; align-items: baseline;
+  padding: 14px 6px; cursor: pointer; list-style: none; font-size: 15px;
+}
+.inbox summary::-webkit-details-marker { display: none; }
+.inbox summary:hover { background: var(--yellow); }
+.inbox details[open] summary { background: var(--lime); }
+.inbox .pre { color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inbox time { font-size: 13px; color: #333; }
+.inbox details img { width: 100%; margin: 6px 0 20px; border-radius: 28px; }
+
+
+@media (max-width: 640px) {
+  .window, .window::before { border-radius: 34px; }
+  .inbox summary { grid-template-columns: 1fr auto; }
+  .inbox summary b { display: none; }
+}
+
+/* every element in the Gmail window gets curved corners */
+.jersey { border-radius: 999px; padding-left: .6em; padding-right: .6em; }
+.chrome-top, .meta { border: 1.5px solid #aaa; border-radius: 22px; padding: 10px 16px; }
+.inbox { border: 1.5px solid #aaa; border-radius: 22px; overflow: hidden; }
+.inbox li:last-child { border-bottom: 0; }
+.inbox details[open] summary { border-radius: 16px; }

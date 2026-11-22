@@ -1,0 +1,91 @@
+/* march to april — one reading column. As you scroll, the design switches
+   between the issue's two spread looks, in the order of the printed pages:
+   A = white page, magenta ring pattern   (pp. 4–5, 8–9, 12–13)
+   B = magenta, outlined circles, pills   (pp. 6–7, 10–11)            */
+
+body { background: #fff; }
+
+/* backgrounds that cross-fade with the section you're reading */
+.look { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+.look i { position: absolute; inset: 0; transition: opacity .7s ease; }
+.lookA { background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='110' height='26' viewBox='0 0 110 26'><g fill='none' stroke='%23ff00ff' stroke-width='1.3'><circle cx='-55' cy='-65' r='55'/><circle cx='-55' cy='-39' r='55'/><circle cx='-55' cy='-13' r='55'/><circle cx='-55' cy='13' r='55'/><circle cx='-55' cy='39' r='55'/><circle cx='-55' cy='65' r='55'/><circle cx='-55' cy='91' r='55'/><circle cx='-55' cy='117' r='55'/><circle cx='55' cy='-65' r='55'/><circle cx='55' cy='-39' r='55'/><circle cx='55' cy='-13' r='55'/><circle cx='55' cy='13' r='55'/><circle cx='55' cy='39' r='55'/><circle cx='55' cy='65' r='55'/><circle cx='55' cy='91' r='55'/><circle cx='55' cy='117' r='55'/><circle cx='165' cy='-65' r='55'/><circle cx='165' cy='-39' r='55'/><circle cx='165' cy='-13' r='55'/><circle cx='165' cy='13' r='55'/><circle cx='165' cy='39' r='55'/><circle cx='165' cy='65' r='55'/><circle cx='165' cy='91' r='55'/><circle cx='165' cy='117' r='55'/></g></svg>") center top / 100px auto; }
+.lookB { background: var(--magenta); opacity: 0; }
+body[data-look="B"] .lookB { opacity: 1; }
+body[data-look="B"] .lookA { opacity: 0; }
+
+.mta { max-width: 700px; margin: 0 auto; padding: 90px 0 120px; }
+
+/* ---------- the page panel ---------- */
+.group {
+  position: relative; container-type: inline-size;
+  padding: 40px 78px 30px; margin-bottom: 150px; background-color: #fff;
+  --bars: linear-gradient(180deg, var(--blue) 50%, var(--yellow) 50%);
+  background-image: var(--bars), var(--bars);
+  background-size: 13px 114px, 13px 114px;
+  background-position: 30px 0, calc(100% - 30px) 57px;
+  background-repeat: repeat-y;
+}
+/* scalloped top and bottom edges */
+.group::before, .group::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 12.5cqw;
+  background: radial-gradient(circle 12.5cqw at 50% 100%, #fff 0 99%, transparent 100%) 0 0 / 25% 100% repeat-x;
+}
+.group::before { top: calc(-12.5cqw + 1px); }
+.group::after  { bottom: calc(-12.5cqw + 1px); transform: scaleY(-1); }
+
+.B { background-image: var(--bars), var(--bars), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='130' height='130'><circle cx='65' cy='65' r='64' fill='none' stroke='%23ff00ff' stroke-width='1.4'/></svg>"); background-size: 13px 114px, 13px 114px, 25% auto; background-position: 30px 0, calc(100% - 30px) 57px, 0 0; background-repeat: repeat-y, repeat-y, repeat; }
+.B::before, .B::after {
+  background: radial-gradient(circle 12.5cqw at 50% 100%, #fff 0 calc(12.5cqw - 2px), var(--magenta) calc(12.5cqw - 2px) 12.5cqw, transparent calc(12.5cqw + .5px)) 0 0 / 25% 100% repeat-x;
+}
+
+.page { position: relative; padding: 18px 0 26px; }
+
+/* ---------- type ---------- */
+.txt {
+  position: relative; margin: 0 0 6px; color: var(--blue); font-family: var(--sans);
+  font-size: clamp(17px, 3.25cqw, 23px); line-height: 1.2; letter-spacing: -.005em;
+}
+.txt.first { text-indent: 2.2em; }
+.B .txt { background: #fff; padding: 12px 14px; margin-left: -14px; margin-right: -14px; }
+/* the white tabs that stick out of the page edge beside the text */
+.txt::before { content: "march to april"; position: absolute; top: 4px; bottom: 4px; left: -126px; width: 70px; background: #fff;
+  writing-mode: vertical-rl; transform: rotate(180deg); display: flex; align-items: center; justify-content: center;
+  color: var(--magenta); font: 400 15px/1 var(--sans); letter-spacing: .02em; text-indent: 0; }
+.page:nth-child(odd) .txt::before { left: auto; right: -126px; transform: none; }
+
+.rh { display: flex; gap: 31%; color: var(--magenta); font-family: var(--sans); font-size: 13px; margin: 0 0 22px; }
+.rh.pill span { border: 1.5px solid var(--magenta); border-radius: 999px; padding: 2px 34px 2px 10px; background: #fff; }
+.rh.pill { gap: 14%; }
+
+figure { margin: 22px 0 26px; }
+.one { width: 52%; margin-left: auto; margin-right: auto; }
+.one img { width: 100%; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6%; width: 88%; margin-left: auto; margin-right: auto; }
+.two img { width: 100%; aspect-ratio: 186 / 247; object-fit: cover; }
+.two .cap { grid-column: 1 / -1; }
+.cap { text-transform: none; color: var(--magenta); font-family: var(--sans); font-size: clamp(15px, 3.1cqw, 22px); line-height: 1.1; margin: 10px 0 0; }
+.cap.r { text-align: right; margin-right: -10%; }
+.cap.pill { border: 1.5px solid var(--magenta); border-radius: 999px; padding: 3px 18px; background: #fff; margin-top: 8px; }
+
+/* ---------- folio badges at the outer edge ---------- */
+.badge { position: absolute; top: 40px; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; z-index: 2; }
+.badge.L { left: -132px; } .badge.R { right: -132px; }
+.badge b { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 400 15px/1 var(--sans); }
+.A .badge { background: #fff; box-shadow: inset 0 0 0 2px var(--magenta), inset 0 0 0 12px #fff, inset 0 0 0 14px var(--magenta); }
+.A .badge b { background: var(--magenta); color: #fff; }
+.B .badge { background: var(--magenta); box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 12px var(--magenta), inset 0 0 0 14px #fff; }
+.B .badge b { background: #fff; color: var(--magenta); }
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1000px) {
+  .mta { padding: 70px 16px 100px; }
+  .badge { transform: scale(.6); top: 0; }
+  .badge.L { left: -72px; } .badge.R { right: -72px; }
+  .txt::before { display: none; }
+}
+@media (max-width: 600px) {
+  .group { padding: 26px 34px 20px; background-position: 10px 0, calc(100% - 10px) 57px; background-size: 8px 90px, 8px 90px; }
+  .B { background-position: 10px 0, calc(100% - 10px) 45px, 0 0; background-size: 8px 90px, 8px 90px, 25% auto; }
+  .badge.L { left: -54px; } .badge.R { right: -54px; }
+  .lookA { background-size: 70px auto; }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New Orleans, Louisiana — MAGGIE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/new-orleans.css">
+</head>
+<body data-root="../" data-feature="new-orleans">
+<main>
+  <section class="reel" aria-label="New Orleans, Louisiana — photographs">
+    <h1>NEW ORLEANS, LOUISIANA</h1>
+    <div class="track" tabindex="0">
+      <figure class="vid">
+        <video src="../media/nola-january-2026.mp4" poster="../media/nola-january-2026-poster.jpg" muted loop playsinline preload="metadata" aria-label="January 2026, New Orleans — video"></video>
+        <figcaption>january 2026 · <span class="vid-hint">hover to preview · click for sound</span></figcaption>
+      </figure>
+      <figure><img src="../img/nola5.jpg" alt="Holding up a long dry palm frond under an oak tree at night"></figure>
+      <figure><img src="../img/nola6.jpg" alt="Two friends posing at a counter in a green restaurant with painted palm trees" loading="lazy"></figure>
+      <figure><img src="../img/nola7.jpg" alt="A friend at an outdoor table at night" loading="lazy"></figure>
+    </div>
+    <div class="controls">
+      <button type="button" data-dir="-1" aria-label="Previous photo">←</button>
+      <span class="count" aria-live="polite">1 / 4</span>
+      <button type="button" data-dir="1" aria-label="Next photo">→</button>
+    </div>
+  </section>
+</main>
+<script src="../js/main.js"></script>
+<script src="../js/player.js"></script>
+<script>
+  const track = document.querySelector(".track");
+  const figs = [...track.children];
+  const count = document.querySelector(".count");
+  const current = () => Math.round(track.scrollLeft / figs[0].offsetWidth);
+  document.querySelectorAll("[data-dir]").forEach(b => b.addEventListener("click", () => {
+    const n = Math.max(0, Math.min(figs.length - 1, current() + +b.dataset.dir));
+    figs[n].scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+  }));
+  track.addEventListener("scroll", () => count.textContent = `${current() + 1} / ${figs.length}`, { passive: true });
+
+  // the video: plays a silent preview while the cursor is over it; click to watch with sound
+  const vid = document.querySelector(".vid video"), hint = document.querySelector(".vid-hint");
+  let full = false;
+  vid.addEventListener("pointerenter", () => { if (!full) vid.play().catch(() => {}); });
+  vid.addEventListener("pointerleave", () => { if (!full) { vid.pause(); } });
+  vid.addEventListener("click", () => {
+    if (!full) { full = true; vid.muted = false; vid.controls = true; vid.currentTime = 0; vid.play().catch(() => {}); hint.textContent = "playing"; }
+  });
+  track.addEventListener("scroll", () => {   // leaving the video slide stops it
+    if (figs[current()] !== vid.parentElement && !vid.paused) { vid.pause(); }
+  }, { passive: true });
+</script>
+</body>
+</html>

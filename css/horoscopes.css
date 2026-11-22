@@ -1,0 +1,63 @@
+/* Your weekly horoscope — pages 67–70: the patterned wall full bleed, a chamfered white card with
+   a grey bevel and a coloured glow, the yellow title bar, triple magenta outlines around each reading,
+   a soft cross of colour behind the text, and the ringed page number. */
+
+body { background: #fff; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+.walls { position: fixed; inset: 0; z-index: -1; }
+.walls i { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; background: center / 900px auto; }
+.walls i.on { opacity: 1; }
+.walls i[data-tile="1"] { background-image: url(../img/tile-horo1.jpg); }
+.walls i[data-tile="2"] { background-image: url(../img/tile-horo2.jpg); }
+.walls i[data-tile="3"] { background-image: url(../img/tile-horo3.jpg); }
+.walls i[data-tile="4"] { background-image: url(../img/tile-horo4.jpg); }
+
+.spread { display: grid; place-items: center; min-height: 100vh; padding: 3vh 0; }
+.page { position: relative; height: 94vh; aspect-ratio: 1532 / 2408; max-width: 100vw; container-type: size; font-family: var(--sans); color: #000; }
+@media (max-aspect-ratio: 1532/2408) { .page { height: auto; width: 100vw; } }
+
+/* the card: chamfered corners, grey bevel on the right and bottom, glow in the week's colour */
+.card { position: absolute; left: 6.3%; right: 6.3%; top: 5.8%; bottom: 2%;
+  background: #b9b9b9; clip-path: polygon(13% 0, 87% 0, 100% 6%, 100% 92%, 87% 100%, 13% 100%, 0 92%, 0 6%); }
+.card::before { content: ""; position: absolute; inset: 0 2.2% 1.5% 0;
+  clip-path: polygon(13% 0, 86% 0, 100% 6%, 100% 92%, 86% 100%, 13% 100%, 0 92%, 0 6%);
+  background: radial-gradient(52% 40% at 50% 52%, var(--glow), color-mix(in srgb, var(--glow) 30%, #fff) 70%, #fbfbff 100%);
+  transition: background .8s ease; }
+.dark .card::before { background: radial-gradient(60% 46% at 50% 50%, #6f6f6f, #b5b5b5 60%, #ececec 100%); }
+
+/* title: yellow bar, magenta outline, pink highlight */
+.ttl { position: absolute; z-index: 3; left: 7%; right: 7%; top: 1.9%; height: 4.6%; margin: 0; display: grid; place-items: center;
+  font: 400 3cqw/1 var(--sans); letter-spacing: -.01em; text-align: center; }
+.ttl::before { content: ""; position: absolute; left: 5.5%; right: 5.5%; top: 0; bottom: 0; background: #ffd22e; border-radius: 99px; }
+.ttl .ol { left: 0; right: 0; top: -12%; bottom: -12%; }
+.ttl span { position: relative; z-index: 1; background: #ffd1df; padding: 0 .1em; }
+.ttl .wk { display: block; background: none; }
+
+/* readings */
+.body { position: absolute; z-index: 2; left: 2.5%; right: 2.5%; top: 8.2%; bottom: 5.5%;
+  display: flex; flex-direction: column; justify-content: space-evenly; align-items: stretch;
+  font-size: 5.3cqw; line-height: 1.17; letter-spacing: -.015em; overflow: hidden; }
+.blk { position: relative; padding: .45em 7% .4em; text-align: center; }
+.blk p { position: relative; z-index: 2; margin: 0; }
+.ol { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 1; }
+.ol polygon { fill: none; stroke: var(--magenta); stroke-width: .3cqw; stroke-linejoin: miter;
+  stroke-dasharray: 4000; stroke-dashoffset: 4000; transition: stroke-dashoffset 1.6s cubic-bezier(.3,.6,.2,1); }
+.ol polygon:nth-child(2) { transition-delay: .12s; } .ol polygon:nth-child(3) { transition-delay: .24s; }
+.is-on .ol polygon { stroke-dashoffset: 0; }
+
+/* the soft cross of colour behind each reading */
+.hl { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hl::before, .hl::after { content: ""; position: absolute; background: var(--hl); transition: transform 1.1s cubic-bezier(.2,.8,.2,1) .2s; }
+.hl::before { left: 24%; right: 24%; top: 0; bottom: 0; transform: scaleY(.15); }
+.hl::after { left: 4%; right: 4%; top: 42%; height: 16%; transform: scaleX(.15); }
+.is-on .hl::before { transform: none; } .is-on .hl::after { transform: none; }
+.div { position: relative; height: 1.9em; margin: 0 -1%; flex: none; }
+
+/* page number: orange disc, magenta rings, pink centre */
+.num { position: absolute; z-index: 4; top: 51.3%; width: 8.4cqw; height: 8.4cqw; border-radius: 50%; display: grid; place-items: center;
+  font: 400 2.1cqw/1 var(--sans);
+  background: radial-gradient(circle, #ffd8e6 0 46%, var(--magenta) 47% 51%, #ffb100 52% 59%, var(--magenta) 60% 64%, #ffb100 65% 100%); }
+.num.r { right: 2.2%; } .num.l { left: 2.2%; }
+
+@media (prefers-reduced-motion: reduce) { .ol polygon, .hl::before, .hl::after, .walls i { transition: none; } }
