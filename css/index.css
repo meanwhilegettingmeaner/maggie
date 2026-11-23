@@ -964,7 +964,7 @@ footer.tp-pills { position: static; padding-top: 14px; }
    most of them moving. One is picked on each visit.
    ========================================================= */
 .sc-shop[data-shop] { position: relative; overflow: visible; isolation: isolate; border: 0 !important; background: none !important;
-  font: italic 400 15px/1 var(--serif) !important; letter-spacing: .06em; text-transform: uppercase; color: #000; }
+  font: 400 13px/1 var(--sans) !important; letter-spacing: normal; text-transform: none; color: #000; }
 .sc-shop[data-shop] span { position: relative; z-index: 2; padding: 3px 12px; border-radius: 99px; }
 .sc-shop[data-shop]::before, .sc-shop[data-shop]::after { content: ""; position: absolute; border-radius: 999px; z-index: 0; pointer-events: none; }
 .sc-shop[data-shop]::before { inset: 0; }
@@ -1003,7 +1003,7 @@ footer.tp-pills { position: static; padding-top: 14px; }
 .sc-shop[data-shop="7"]::before { background: linear-gradient(90deg, #d4a017 50%, transparent 0) 0 0 / 12px 2px repeat-x, linear-gradient(90deg, #d4a017 50%, transparent 0) 0 100% / 12px 2px repeat-x, linear-gradient(0deg, #d4a017 50%, transparent 0) 0 0 / 2px 12px repeat-y, linear-gradient(0deg, #d4a017 50%, transparent 0) 100% 0 / 2px 12px repeat-y; border-radius: 0; animation: shop-dash 1s linear infinite; }
 @keyframes shop-dash { to { background-position: 12px 0, -12px 100%, 0 -12px, 100% 12px; } }
 .sc-shop[data-shop="7"]::after { background: var(--lime); border-radius: 4px; }
-.sc-shop[data-shop="7"] span { font-family: "Comic Sans MS", "Comic Neue", cursive; font-style: normal; color: var(--magenta); }
+.sc-shop[data-shop="7"] span { color: var(--magenta); }
 /* 8 Koons halo: green, magenta ring, white ring, chrome capsule */
 .sc-shop[data-shop="8"]::before { background: var(--green); box-shadow: 0 0 0 2px var(--magenta), 0 0 0 5px #fff, 0 0 0 6px #000; }
 .sc-shop[data-shop="8"]::after { background: linear-gradient(180deg, #fff, #8d8d8d 50%, #f4f4f4); border: 2px solid var(--magenta); }
@@ -1019,7 +1019,7 @@ footer.tp-pills { position: static; padding-top: 14px; }
 /* 11 Mac OS 8 window button with pinstripe title bar */
 .sc-shop[data-shop="11"]::before { border-radius: 2px; background: repeating-linear-gradient(180deg, #fff 0 2px, #9a9a9a 0 4px); outline: 1px solid #000; }
 .sc-shop[data-shop="11"]::after { inset: 4px 22px; border-radius: 2px; background: #ddd; border: 2px solid; border-color: #fff #555 #555 #fff; }
-.sc-shop[data-shop="11"] span { font: 400 13px/1 Charcoal, Chicago, Geneva, var(--sans); text-transform: none; letter-spacing: 0; }
+
 /* 12 riso misregistration: magenta + blue offset layers, yellow pill */
 .sc-shop[data-shop="12"]::before { background: var(--magenta); transform: translate(5px, 3px); }
 .sc-shop[data-shop="12"]::after { inset: 0; background: var(--blue); transform: translate(-3px, -2px); opacity: .85; }
@@ -1031,6 +1031,48 @@ footer.tp-pills { position: static; padding-top: 14px; }
 .sc-shop[data-shop="14"]::before { background: var(--hl-red); box-shadow: 0 0 0 3px var(--lime), 0 0 0 6px var(--magenta), 0 0 0 7px #000; }
 .sc-shop[data-shop="14"]::after { background: #000; }
 .sc-shop[data-shop="14"] span { color: var(--yellow); }
+
+
+/* 15 spinning pastel holo ring around a black capsule, white letters */
+.sc-shop[data-shop="15"]::before { background: conic-gradient(from var(--a), #ff9ef9, #9ef7ff, #fff59e, #b9aeff, #9effc0, #ff9ef9); animation: shop-spin 4s linear infinite; }
+.sc-shop[data-shop="15"]::after { background: #000; }
+.sc-shop[data-shop="15"] span { color: #fff; }
+/* 16 neon: black with green inner ring, magenta outer ring, green letters */
+.sc-shop[data-shop="16"]::before { background: #000; box-shadow: 0 0 0 2px var(--green), 0 0 0 4px #000, 0 0 0 6px var(--magenta); }
+.sc-shop[data-shop="16"]::after { inset: 3px; background: #000; border: 1px solid var(--green); }
+.sc-shop[data-shop="16"] span { color: var(--green); }
+/* 17 horizontal op-art stripes rolling upward, magenta label */
+.sc-shop[data-shop="17"]::before { background: repeating-linear-gradient(180deg, #000 0 4px, #fff 0 8px); animation: shop-scroll 1.5s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="17"]::after { display: none; }
+.sc-shop[data-shop="17"] span { background: var(--magenta); color: #fff; outline: 1px solid #000; }
+/* 18 pink/white checker, yellow ring, lime label */
+.sc-shop[data-shop="18"]::before { background: conic-gradient(#ffd1ff 25%, #fff 0 50%, #ffd1ff 0 75%, #fff 0) 0 0 / 10px 10px; box-shadow: 0 0 0 3px var(--yellow), 0 0 0 4px #000; animation: shop-scroll 3s linear infinite; }
+.sc-shop[data-shop="18"]::after { display: none; }
+.sc-shop[data-shop="18"] span { background: var(--lime); outline: 1px solid #000; }
+/* 19 orange-red-yellow flame stripes sliding, white label */
+.sc-shop[data-shop="19"]::before { background: repeating-linear-gradient(-45deg, var(--hl-red) 0 6px, var(--hl-orange) 0 12px, var(--yellow) 0 18px) 0 0 / 200% 100%; animation: shop-slide 3s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="19"]::after { display: none; }
+.sc-shop[data-shop="19"] span { background: #fff; outline: 1px solid #000; }
+/* 20 blue/white checker scrolling, red label */
+.sc-shop[data-shop="20"]::before { background: conic-gradient(var(--blue) 25%, #fff 0 50%, var(--blue) 0 75%, #fff 0) 0 0 / 12px 12px; animation: shop-scroll 2.5s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="20"]::after { display: none; }
+.sc-shop[data-shop="20"] span { background: var(--hl-red); color: #fff; outline: 1px solid #000; }
+/* 21 double chevron: black around yellow, sliding magenta stripes inside */
+.sc-shop[data-shop="21"]::before { border-radius: 0; background: #000; clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%); }
+.sc-shop[data-shop="21"]::after { inset: 3px; border-radius: 0; background: repeating-linear-gradient(90deg, var(--yellow) 0 6px, var(--magenta) 0 9px) 0 0 / 200% 100%; animation: shop-slide 5s linear infinite;
+  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); }
+.sc-shop[data-shop="21"] span { background: var(--yellow); outline: 1px solid #000; }
+/* 22 riso duotone: lilac and lime halves, magenta and blue rings */
+.sc-shop[data-shop="22"]::before { background: linear-gradient(90deg, var(--lilac) 50%, var(--lime) 0); box-shadow: 0 0 0 2px var(--magenta), 0 0 0 4px var(--blue), 0 0 0 5px #000; }
+.sc-shop[data-shop="22"]::after { display: none; }
+.sc-shop[data-shop="22"] span { background: #fff; outline: 1px solid #000; }
+/* 23 Aqua pink gel inside a spinning rainbow, green letters */
+.sc-shop[data-shop="23"]::before { background: conic-gradient(from var(--a), var(--hl-red), var(--hl-orange), var(--yellow), var(--green), var(--blue), var(--magenta), var(--hl-red)); animation: shop-spin 2.5s linear infinite; }
+.sc-shop[data-shop="23"]::after { background: linear-gradient(180deg, rgba(255,255,255,.9) 0 46%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #ff9ef9, #ff2cf3 55%, #ffc4fb); border: 1px solid #a0009a; }
+/* 24 the journal pattern wall: yellow diamonds on magenta, chrome label */
+.sc-shop[data-shop="24"]::before { background: var(--magenta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M5 1 9 5 5 9 1 5Z' fill='%23ffff00' stroke='%23000' stroke-width='.8'/%3E%3C/svg%3E") 0 0 / 10px 10px; animation: shop-scroll 2s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="24"]::after { display: none; }
+.sc-shop[data-shop="24"] span { background: linear-gradient(180deg, #fff, #9a9a9a 55%, #f0f0f0); outline: 1px solid #000; }
 
 .sc-shop[data-shop]:hover span { background: var(--yellow) !important; color: #000 !important; outline: 1px solid #000; }
 @media (prefers-reduced-motion: reduce) { .sc-shop[data-shop]::before, .sc-shop[data-shop]::after { animation: none !important; } }
