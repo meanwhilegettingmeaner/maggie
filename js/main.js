@@ -393,7 +393,7 @@ const CATS = [
       });
       requestAnimationFrame(() => requestAnimationFrame(() => glyphs.classList.add("on")));
       const f = FEATURES.find(f => f.cat === cat);
-      if (cur) cur.textContent = f ? f.title : "MAGGIE Issue 1";
+      if (cur) cur.textContent = f ? f.title : "index";
     };
     // a post can ask for its own background set (data-glyph), e.g. the editor's note inside Conversations
     const glyphKey = () => body.dataset.glyph || body.dataset.now;

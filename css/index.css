@@ -949,3 +949,4 @@ footer.tp-pills { position: static; padding-top: 14px; }
   box-shadow: 0 0 0 2px #000, 0 0 14px 6px #ff68f8, 0 0 34px 14px #ffff8c; transition: transform .3s; }
 .nola-vid video, .post[data-cat="photos"]:is(:hover, :focus-within, .is-on) .nola-vid video { transform: none !important; transition: none; }
 .nola-vid figcaption { margin-top: 14px; font: 13px/1 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: #ccc; text-align: left; }
+.ticker a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
