@@ -67,7 +67,7 @@ const CATS = [
     if (b.dataset.btn) return;
     [...b.childNodes].forEach(n => { if (n.nodeType === 3 && n.textContent.trim()) { const s = document.createElement("span"); s.className = "bl"; s.textContent = n.textContent.trim(); n.replaceWith(s); } });
     b.querySelectorAll(":scope > span:not(.dot):not(.bl)").forEach(s => s.classList.add("bl"));
-    let v; do { v = 2 + Math.floor(Math.random() * (BTN_N - 1)); } while (used.has(v));   // never the plain white one
+    let v; do { v = 1 + Math.floor(Math.random() * BTN_N); } while (used.has(v));
     used.add(v); b.dataset.btn = v;
   });
   maggieButtons();
