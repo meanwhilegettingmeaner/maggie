@@ -61,7 +61,7 @@ const CATS = [
   // ---- buttons: every pill button on the site wears one of these styles, a new one on each visit ----
   const BTN_N = 30;
   // only Shop, Order by email and the footer Sign up get the colourful looks; each takes a different one
-  const BTN_SEL = ".sc-shop, .order, .foot-form button";
+  const BTN_SEL = ".order, .foot-form button";
   const used = new Set();
   window.maggieButtons = () => document.querySelectorAll(BTN_SEL).forEach(b => {
     if (b.dataset.btn) return;
@@ -71,6 +71,9 @@ const CATS = [
     used.add(v); b.dataset.btn = v;
   });
   maggieButtons();
+  // the Shop box goes maximal: its own wilder set, a new one each visit
+  const shop = document.querySelector(".sc-shop");
+  if (shop) shop.dataset.shop = 1 + Math.floor(Math.random() * 14);
   addEventListener("DOMContentLoaded", maggieButtons);
   addEventListener("load", maggieButtons);
   addEventListener("DOMContentLoaded", maggieTone);
