@@ -208,6 +208,8 @@ const CATS = [
     }
 
     // --- daily horoscope box: a different version on every visit ---
+    const shopBox = document.querySelector(".sc-shop");
+    if (shopBox) shopBox.dataset.v = 1 + Math.floor(Math.random() * 12);
     const hb = document.querySelector(".daily-box");
     if (hb) { const V = [1, 1, 6, 7, 8, 9, 10, 11, 2, 3, 4, 5]; hb.dataset.v = V[Math.floor(Math.random() * V.length)]; }
 
@@ -393,7 +395,7 @@ const CATS = [
       });
       requestAnimationFrame(() => requestAnimationFrame(() => glyphs.classList.add("on")));
       const f = FEATURES.find(f => f.cat === cat);
-      if (cur) cur.textContent = f ? f.title : "index";
+      
     };
     // a post can ask for its own background set (data-glyph), e.g. the editor's note inside Conversations
     const glyphKey = () => body.dataset.glyph || body.dataset.now;

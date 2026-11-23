@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shop — MAGGIE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/info.css">
+<style>
+  .shop { max-width: 980px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+  .shop h1 { grid-column: 1 / -1; margin-bottom: 0; }
+  .shop figure { margin: 0; }
+  .shop figure img { display: block; width: 100%; height: auto; border: 1px solid #000; }
+  .item h2 { margin-top: 0; }
+  .specs { list-style: none; padding: 0 !important; border-top: 1px solid #000; margin: 18px 0 24px !important; }
+  .specs li { display: grid; grid-template-columns: 9em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #000; margin: 0 !important; }
+  .order { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 22px 0 6px; border: 1px solid #000; border-radius: 999px; color: #000; text-decoration: none; font: 15px/1 var(--sans); }
+  .order i { width: 32px; height: 32px; border-radius: 50%; border: 1px solid #000; display: grid; place-items: center; font-style: normal; background: linear-gradient(180deg, #ffff8a, var(--yellow)); }
+  .order:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)); }
+  .note { font-size: 13px; color: #555; margin-top: 14px !important; }
+  @media (max-width: 700px) { .shop { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body data-root="" data-page="shop">
+<main class="info shop">
+  <h1>Shop</h1>
+  <figure><img src="img/cover.jpg" alt="Cover of MAGGIE Issue 1" width="912" height="1400"></figure>
+  <div class="item">
+    <h2><span>MAGGIE Issue 1</span></h2>
+    <p>MAGGIE is a printed magazine. Issue 1 collects writing, photographs, emails, horoscopes and a conversation from March to November 2026.</p>
+    <ul class="specs">
+      <li><span>Print</span><span>Risograph</span></li>
+      <li><span>Printed at</span><span>Riso Studio Arts, Los Angeles</span></li>
+      <li><span>Edition</span><span>Issue 1, 2026</span></li>
+    </ul>
+    <a class="order" href="mailto:info@meanwhilegettingmeaner.com?subject=MAGGIE%20Issue%201%20order"><i aria-hidden="true">→</i>Order by email</a>
+    <p class="note">Email <a href="mailto:info@meanwhilegettingmeaner.com?subject=MAGGIE%20Issue%201%20order">info@meanwhilegettingmeaner.com</a> with your name and address. We'll reply with the price and shipping before you pay.</p>
+  </div>
+</main>
+<script src="js/main.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
