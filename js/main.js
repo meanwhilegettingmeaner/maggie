@@ -51,13 +51,26 @@ const CATS = [
   };
   const pick = a => a[Math.floor(Math.random() * a.length)];
   window.maggieTone = () => {
-    [[".nav-row:first-child a:not(.nav-logo)", "flat"], ["a.hl-y, .info h2 span, .foot-grid > div:nth-of-type(3) h3", "flat"],
-     [".size-ctl i, .sc-sz i, .sound .dot, .np-bar button, .foot-form button, .tp-pl, .order i", "full"]]
+    [[".nav-row:first-child a:not(.nav-logo)", "flat"], ["a.hl-y, .info h2 span, .foot-grid > div:nth-of-type(3) h3", "flat"]]
       .forEach(([sel, kind]) => document.querySelectorAll(sel).forEach(el => {
         if (!el.dataset.tone) { const t = pick(TONES[kind]); if (t !== 1) el.dataset.tone = t; else el.dataset.tone = "1"; }
       }));
   };
   maggieTone();
+
+  // ---- buttons: every pill button on the site wears one of these styles, a new one on each visit ----
+  const BTN_N = 30;
+  const BTN_SEL = ".sc-shop, .order, .foot-form button, .tp-pl, .enter, a.more";
+  window.maggieButtons = () => document.querySelectorAll(BTN_SEL).forEach(b => {
+    if (b.dataset.btn) return;
+    // wrap loose text so patterned styles can sit a white label on top
+    [...b.childNodes].forEach(n => { if (n.nodeType === 3 && n.textContent.trim()) { const s = document.createElement("span"); s.className = "bl"; s.textContent = n.textContent.trim(); n.replaceWith(s); } });
+    b.querySelectorAll(":scope > span:not(.dot):not(.bl)").forEach(s => s.classList.add("bl"));
+    b.dataset.btn = 1 + Math.floor(Math.random() * BTN_N);
+  });
+  maggieButtons();
+  addEventListener("DOMContentLoaded", maggieButtons);
+  addEventListener("load", maggieButtons);
   addEventListener("DOMContentLoaded", maggieTone);
   addEventListener("load", maggieTone);
 
@@ -226,8 +239,6 @@ const CATS = [
     }
 
     // --- daily horoscope box: a different version on every visit ---
-    const shopBox = document.querySelector(".sc-shop");
-    if (shopBox) shopBox.dataset.v = 1 + Math.floor(Math.random() * 12);
     const hb = document.querySelector(".daily-box");
     if (hb) { const V = [1, 1, 6, 7, 8, 9, 10, 11, 2, 3, 4, 5]; hb.dataset.v = V[Math.floor(Math.random() * V.length)]; }
 

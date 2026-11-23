@@ -34,19 +34,7 @@
   .item h2[data-v="8"] span { background: var(--lime); }
   .item h2[data-v="9"] span { background: var(--lilac); }
   .item h2[data-v="10"] span { background: var(--hl-red); color: #fff; }
-  .order[data-v="2"] { background: linear-gradient(180deg, #ffff8a, var(--yellow)); } .order[data-v="2"] i { background: #fff; }
-  .order[data-v="3"] { background: #ffd1df; border: 2px solid var(--magenta); outline: 2px solid var(--magenta); outline-offset: 2px; }
-  .order[data-v="4"] { background: var(--hl-green); border-radius: 0; } .order[data-v="4"] i { border-radius: 0; }
-  .order[data-v="5"] { background: #000; color: #fff; }
-  .order[data-v="6"] { background: #ddd; border-radius: 3px; border: 2px solid; border-color: #fff #555 #555 #fff; outline: 1px solid #000; font-family: Charcoal, Chicago, Geneva, var(--sans); } .order[data-v="6"] i { border-radius: 2px; }
-  .order[data-v="7"] { background: #ffd1ff; border: 2px solid #000; outline: 3px solid var(--yellow); }
-  .order[data-v="8"] { background: linear-gradient(180deg, #f4f4f4, #9a9a9a 55%, #e8e8e8); border: 2px solid var(--magenta); }
-  .order[data-v="9"] { background: var(--blue); color: #fff; border-radius: 0; }
-  .order[data-v="10"] { background: var(--magenta); color: #fff; }
-  .order[data-v="11"] { background: #fff; border: 2px dashed #d4a017; }
-  .order[data-v="12"] { background: var(--lime); }
   .order i { color: #000; }
-  .order[data-v]:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)); color: #000; } .order[data-v]:hover i { background: #fff; }
 </style>
 </head>
 <body data-root="" data-page="shop">
@@ -67,7 +55,6 @@
 </main>
 <script>
   document.querySelector(".item h2").dataset.v = 1 + Math.floor(Math.random() * 10);
-  document.querySelector(".order").dataset.v = 1 + Math.floor(Math.random() * 12);
 </script>
 <script src="js/main.js"></script>
 <script src="js/player.js"></script>

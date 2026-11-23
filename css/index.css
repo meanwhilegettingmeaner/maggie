@@ -955,20 +955,5 @@ footer.tp-pills { position: static; padding-top: 14px; }
 .sc-shop { color: #000; text-decoration: none; display: flex; align-items: center; cursor: pointer; }
 .sc-shop:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)) !important; }
 
-/* shop box: a different style on each visit, drawn from the issue (like the daily horoscope widget) */
-.sc-shop { justify-content: center; letter-spacing: .04em; transition: none; }
-.sc-shop[data-v="2"] { background: linear-gradient(180deg, #ffff8a, var(--yellow)) !important; }
-.sc-shop[data-v="3"] { background: #ffd1df !important; border: 2px solid var(--magenta) !important; outline: 2px solid var(--magenta); outline-offset: 2px; }
-.sc-shop[data-v="4"] { background: var(--green) !important; border-radius: 0 !important; }
-.sc-shop[data-v="5"] { background: #000 !important; color: #fff !important; }
-.sc-shop[data-v="6"] { background: #ddd !important; border-radius: 3px !important; border-width: 2px !important; border-color: #fff #555 #555 #fff !important; outline: 1px solid #000; font-family: Charcoal, Chicago, Geneva, var(--sans); }
-.sc-shop[data-v="7"] { background: #ffd1ff !important; border: 2px solid #000 !important; outline: 3px solid var(--yellow); }
-.sc-shop[data-v="8"] { background: linear-gradient(180deg, #f4f4f4, #9a9a9a 55%, #e8e8e8) !important; border: 2px solid var(--magenta) !important; }
-.sc-shop[data-v="9"] { background: repeating-linear-gradient(90deg, #000 0 6px, #fff 0 12px) !important; }
-.sc-shop[data-v="9"] span { background: #fff; padding: 2px 8px; }
-.sc-shop[data-v="10"] { background: var(--blue) !important; color: #fff !important; border-radius: 0 !important; }
-.sc-shop[data-v="11"] { background: var(--magenta) !important; color: #fff !important; }
-.sc-shop[data-v="12"] { background: #fff !important; border: 2px dashed #d4a017 !important; }
-.sc-shop:hover { filter: none; outline-color: var(--yellow); }
-.sc-shop[data-v]:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)) !important; color: #000 !important; }
-.sc-shop[data-v]:hover span { background: transparent; }
+
+.sc-shop { justify-content: center; }
