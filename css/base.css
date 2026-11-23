@@ -226,7 +226,7 @@ a.more[data-btn] { display: inline-flex; align-items: center; gap: 8px; padding:
 [data-btn="7"]  { background: #ffd1ff !important; border: 2px solid #000 !important; outline: 3px solid var(--yellow); }
 [data-btn="8"]  { background: linear-gradient(180deg, #f4f4f4, #9a9a9a 55%, #e8e8e8) !important; border: 2px solid var(--magenta) !important; }
 [data-btn="9"]  { background: repeating-linear-gradient(90deg, #000 0 6px, #fff 0 12px) !important; }
-[data-btn="10"] { background: var(--blue) !important; color: #fff !important; border-radius: 0 !important; }
+[data-btn="10"] { background: linear-gradient(180deg, var(--blue) 50%, var(--yellow) 0) 8px 0 / 5px 12px repeat-y, linear-gradient(180deg, var(--blue) 50%, var(--yellow) 0) calc(100% - 8px) 0 / 5px 12px repeat-y, #fff !important; border: 2px solid var(--magenta) !important; border-radius: 999px !important; }
 [data-btn="11"] { background: var(--magenta) !important; color: #fff !important; }
 [data-btn="12"] { background: #fff !important; border: 2px dashed #d4a017 !important; }
 /* Aqua gels (glossy top half, no shadow) */
@@ -235,29 +235,29 @@ a.more[data-btn] { display: inline-flex; align-items: center; gap: 8px; padding:
 [data-btn="15"] { background: linear-gradient(180deg, rgba(255,255,255,.85) 0 48%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #7cf09b, #19b852 55%, #a6ffbf) !important; border-color: #0d7a35 !important; }
 [data-btn="16"] { background: linear-gradient(180deg, rgba(255,255,255,.85) 0 48%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #ff9ef9, #ff2cf3 55%, #ffc4fb) !important; border-color: #a0009a !important; }
 /* patterns with a white label */
-[data-btn="17"] { background: conic-gradient(#ffd1ff 25%, #fff 0 50%, #ffd1ff 0 75%, #fff 0) 0 0 / 12px 12px !important; border-color: var(--magenta) !important; }
-[data-btn="18"] { background: repeating-linear-gradient(45deg, #000 0 6px, var(--yellow) 0 12px) !important; }
+[data-btn="17"] { background: url(../img/tile-journal1.jpg) 0 0 / 110px auto !important; border-color: #000 !important; }
+[data-btn="18"] { background: url(../img/tile-horo1.jpg) center / 130px auto !important; }
 [data-btn="19"] { background: repeating-linear-gradient(180deg, #fff 0 2px, #cfcfcf 0 4px) !important; border-radius: 2px !important; outline: 1px solid #000; outline-offset: 2px; }
 [data-btn="20"] { background: #ffd1ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M5 1 9 5 5 9 1 5Z' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 0 0 / 10px 10px !important; }
 [data-btn="21"] { background: repeating-linear-gradient(180deg, #000 0 4px, #fff 0 8px) !important; border-radius: 0 !important; }
-:is([data-btn="9"], [data-btn="17"], [data-btn="18"], [data-btn="19"], [data-btn="20"], [data-btn="21"]) .bl { background: #fff; color: #000; padding: 1px 8px; border-radius: 99px; }
-:is([data-btn="18"], [data-btn="20"]) .bl { outline: 1px solid #000; }
+:is([data-btn="9"], [data-btn="17"], [data-btn="18"], [data-btn="19"], [data-btn="20"], [data-btn="21"], [data-btn="26"]) .bl { background: #fff; color: #000; padding: 1px 8px; border-radius: 99px; }
+:is([data-btn="17"], [data-btn="18"], [data-btn="20"], [data-btn="26"]) .bl { outline: 1px solid #000; }
 /* rings, doubles and riso flats */
 [data-btn="22"] { background: #fff !important; border: 1px solid #000 !important; outline: 1px solid #000; outline-offset: 3px; border-radius: 0 !important; }
 [data-btn="23"] { background: var(--hl-green) !important; border: 3px solid var(--magenta) !important; outline: 3px solid var(--green); }
 [data-btn="24"] { background: #fff !important; color: var(--hl-red) !important; border: 2px solid var(--hl-red) !important; border-radius: 0 !important; }
-[data-btn="25"] { background: var(--hl-orange) !important; }
-[data-btn="26"] { background: var(--lime) !important; border: 2px dashed var(--magenta) !important; }
-[data-btn="27"] { background: var(--lilac) !important; border-radius: 6px !important; }
+[data-btn="25"] { background: linear-gradient(180deg, #efe6cf, #d9c9a1) !important; border: 3px solid #2b2626 !important; color: #c8102e !important; }
+[data-btn="26"] { background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><g fill='none' stroke='%23ff00ff' stroke-width='1.2'><circle cx='11' cy='11' r='9'/><circle cx='11' cy='11' r='5.5'/><circle cx='11' cy='11' r='2'/></g></svg>") 0 0 / 22px 22px !important; border-color: var(--magenta) !important; }
+[data-btn="27"] { background: #d9d9d9 !important; color: #d400d4 !important; border: 2px solid var(--magenta) !important; outline: 4px solid rgba(170,255,170,.9); border-radius: 10px !important; }
 [data-btn="28"] { background: #ffd22e !important; border: 2px solid var(--magenta) !important; clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); border-radius: 0 !important; padding-left: 22px !important; padding-right: 22px !important; }
 [data-btn="29"] { background: radial-gradient(60% 120% at 50% 50%, #e2dcff, #fff) !important; border: 2px solid var(--magenta) !important; outline: 2px solid var(--magenta); outline-offset: 2px; border-radius: 6px !important; }
-[data-btn="30"] { background: var(--hl-red) !important; color: #fff !important; }
+[data-btn="30"] { background: #000 !important; color: #fff !important; border: 2px solid #ff68f8 !important; outline: 2px solid #ffff8c; }
 
 /* the round icon inside a button (music ♪, order →) follows the button: yellow on light looks, white on yellow ones */
 [data-btn] :is(.dot, i) { color: #000 !important; }
 :is([data-btn="2"], [data-btn="18"], [data-btn="28"]) :is(.dot, i) { background: #fff !important; }
 /* the white text bits inside dark looks */
-:is([data-btn="5"], [data-btn="10"], [data-btn="11"], [data-btn="30"]) .label { color: #fff; }
+:is([data-btn="5"], [data-btn="11"], [data-btn="30"]) .label { color: #fff; }
 
 [data-btn]:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)) !important; color: #000 !important; outline-color: transparent; }
 [data-btn]:hover .bl { background: transparent; outline: none; }

@@ -976,103 +976,95 @@ footer.tp-pills { position: static; padding-top: 14px; }
 @keyframes shop-march { to { background-position: 24px 0, 0 0; } }
 @keyframes shop-scroll { to { background-position: 0 24px; } }
 
-/* 1 rainbow ring spinning around a pink pill, yellow label */
-.sc-shop[data-shop="1"]::before { background: conic-gradient(from var(--a), var(--magenta), var(--yellow), var(--green), var(--blue), var(--magenta)); animation: shop-spin 3s linear infinite; }
-.sc-shop[data-shop="1"]::after { background: #ffd1df; border: 1px solid #000; }
-.sc-shop[data-shop="1"] span { background: var(--yellow); outline: 1px solid #000; }
-/* 2 marching hazard stripes, magenta-yellow, black label */
-.sc-shop[data-shop="2"]::before { background: repeating-linear-gradient(45deg, var(--magenta) 0 6px, var(--yellow) 0 12px) 0 0 / 200% 100%; animation: shop-slide 4s linear infinite; outline: 2px solid #000; }
+/* Every look below is taken from the issue's own pages or the shared references
+   (old Apple UI, Aqua, Mac OS 8). Numbers say where each one comes from. */
+
+/* 1 old Apple: the six-colour rainbow bands, white label */
+.sc-shop[data-shop="1"]::before { background: linear-gradient(180deg, #61bb46 0 16.6%, #fdb827 0 33.3%, #f5821f 0 50%, #e03a3e 0 66.6%, #963d97 0 83.3%, #009ddc 0); outline: 1px solid #000; }
+.sc-shop[data-shop="1"]::after { display: none; }
+.sc-shop[data-shop="1"] span { background: #fff; outline: 1px solid #000; }
+/* 2 Journal Entries p.24–25: the pink/yellow pattern wall, pink pill with yellow ring */
+.sc-shop[data-shop="2"]::before { background: url(../img/tile-journal1.jpg) 0 0 / 120px auto; animation: shop-scroll 6s linear infinite; outline: 1px solid #000; }
 .sc-shop[data-shop="2"]::after { display: none; }
-.sc-shop[data-shop="2"] span { background: #000; color: #fff; }
-/* 3 Aqua gel inside magenta + green + yellow rings */
+.sc-shop[data-shop="2"] span { background: #ffd1ff; outline: 2px solid #000; box-shadow: 0 0 0 4px var(--yellow), 0 0 0 5px #000; }
+/* 3 Aqua (old Apple): blue gel inside magenta / green / yellow rings (Koons palette) */
 .sc-shop[data-shop="3"]::before { background: var(--magenta); box-shadow: 0 0 0 3px var(--green), 0 0 0 6px var(--yellow), 0 0 0 7px #000; }
 .sc-shop[data-shop="3"]::after { background: linear-gradient(180deg, rgba(255,255,255,.9) 0 46%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #5aa6f5, #1f7cf0 55%, #8fd0ff); border: 1px solid #1d5fb8; }
 .sc-shop[data-shop="3"] span { color: #001a44; }
-/* 4 holographic foil sliding */
-.sc-shop[data-shop="4"]::before { background: linear-gradient(90deg, #ff9ef9, #9ef7ff, #fff59e, #b9aeff, #9effc0, #ff9ef9) 0 0 / 200% 100%; animation: shop-slide 3s linear infinite; border: 2px solid var(--magenta); }
+/* 4 Horoscopes p.67: the pink kaleidoscope wall, pink label in a magenta outline */
+.sc-shop[data-shop="4"]::before { background: url(../img/tile-horo1.jpg) center / 140px auto; animation: shop-slide 14s linear infinite; outline: 1px solid #000; }
 .sc-shop[data-shop="4"]::after { display: none; }
-.sc-shop[data-shop="4"] span { background: #fff; outline: 2px solid var(--magenta); }
-/* 5 op-art stripes scrolling, chrome label */
+.sc-shop[data-shop="4"] span { background: #ffd1df; outline: 2px solid var(--magenta); outline-offset: 2px; }
+/* 5 car talks / editor's note: the op-art stripe frame, scrolling */
 .sc-shop[data-shop="5"]::before { background: repeating-linear-gradient(90deg, #000 0 5px, #fff 0 10px) 0 0 / 200% 100%; animation: shop-slide 6s linear infinite; outline: 2px solid #000; }
 .sc-shop[data-shop="5"]::after { display: none; }
-.sc-shop[data-shop="5"] span { background: linear-gradient(180deg, #f4f4f4, #9a9a9a 55%, #e8e8e8); outline: 2px solid var(--magenta); }
-/* 6 journal pill: diamond chain band, yellow ring, pink centre */
+.sc-shop[data-shop="5"] span { background: #fff; outline: 1px solid #000; border-radius: 0; }
+/* 6 Journal Entries pills: diamond-chain band, yellow ring, pink centre */
 .sc-shop[data-shop="6"]::before { background: #ffd1ff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M4.5 1 8 4.5 4.5 8 1 4.5Z' fill='none' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 0 0 / 9px 9px; animation: shop-scroll 3s linear infinite; }
 .sc-shop[data-shop="6"]::after { inset: 7px 30px; background: #ffd1df; border: 1px solid #000; box-shadow: 0 0 0 3px var(--yellow), 0 0 0 4px #000; }
-/* 7 gold Gmail dashes marching round a lime pill */
+/* 7 cheers (Gmail): the gold dashed frame marching round a lime pill */
 .sc-shop[data-shop="7"]::before { background: linear-gradient(90deg, #d4a017 50%, transparent 0) 0 0 / 12px 2px repeat-x, linear-gradient(90deg, #d4a017 50%, transparent 0) 0 100% / 12px 2px repeat-x, linear-gradient(0deg, #d4a017 50%, transparent 0) 0 0 / 2px 12px repeat-y, linear-gradient(0deg, #d4a017 50%, transparent 0) 100% 0 / 2px 12px repeat-y; border-radius: 0; animation: shop-dash 1s linear infinite; }
 @keyframes shop-dash { to { background-position: 12px 0, -12px 100%, 0 -12px, 100% 12px; } }
 .sc-shop[data-shop="7"]::after { background: var(--lime); border-radius: 4px; }
 .sc-shop[data-shop="7"] span { color: var(--magenta); }
-/* 8 Koons halo: green, magenta ring, white ring, chrome capsule */
+/* 8 Koons p.14–23: green, magenta line, white ring, chrome stadium */
 .sc-shop[data-shop="8"]::before { background: var(--green); box-shadow: 0 0 0 2px var(--magenta), 0 0 0 5px #fff, 0 0 0 6px #000; }
 .sc-shop[data-shop="8"]::after { background: linear-gradient(180deg, #fff, #8d8d8d 50%, #f4f4f4); border: 2px solid var(--magenta); }
 .sc-shop[data-shop="8"] span { color: #c000c0; }
-/* 9 horoscope chevron, triple magenta outline, yellow-pink */
+/* 9 Horoscopes: the pointed yellow title bar with magenta outline and pink highlight */
 .sc-shop[data-shop="9"]::before { border-radius: 0; background: var(--magenta); clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%); }
-.sc-shop[data-shop="9"]::after { inset: 3px; border-radius: 0; background: linear-gradient(90deg, #ffd22e, #ffd1df 50%, #ffd22e); clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); }
-.sc-shop[data-shop="9"] span { background: #ffd1df; outline: 1px solid var(--magenta); outline-offset: 2px; }
-/* 10 checkerboard scrolling, black capsule label */
-.sc-shop[data-shop="10"]::before { background: conic-gradient(var(--magenta) 25%, var(--yellow) 0 50%, var(--magenta) 0 75%, var(--yellow) 0) 0 0 / 12px 12px; animation: shop-scroll 2s linear infinite; outline: 2px solid #000; }
-.sc-shop[data-shop="10"]::after { display: none; }
-.sc-shop[data-shop="10"] span { background: #000; color: var(--yellow); }
-/* 11 Mac OS 8 window button with pinstripe title bar */
+.sc-shop[data-shop="9"]::after { inset: 3px; border-radius: 0; background: #ffd22e; clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); }
+.sc-shop[data-shop="9"] span { background: #ffd1df; border-radius: 0; }
+/* 10 the cover: the cream oval sign with its dark rim and red letters */
+.sc-shop[data-shop="10"]::before { background: #2b2626; }
+.sc-shop[data-shop="10"]::after { inset: 3px; background: linear-gradient(180deg, #efe6cf, #d9c9a1); border: 2px solid #f4efe3; }
+.sc-shop[data-shop="10"] span { color: #c8102e; letter-spacing: .08em; text-transform: uppercase; }
+/* 11 Deepfakes deck (Mac OS 8): grey window button on the pinstripe title bar */
 .sc-shop[data-shop="11"]::before { border-radius: 2px; background: repeating-linear-gradient(180deg, #fff 0 2px, #9a9a9a 0 4px); outline: 1px solid #000; }
 .sc-shop[data-shop="11"]::after { inset: 4px 22px; border-radius: 2px; background: #ddd; border: 2px solid; border-color: #fff #555 #555 #fff; }
-
-/* 12 riso misregistration: magenta + blue offset layers, yellow pill */
-.sc-shop[data-shop="12"]::before { background: var(--magenta); transform: translate(5px, 3px); }
-.sc-shop[data-shop="12"]::after { inset: 0; background: var(--blue); transform: translate(-3px, -2px); opacity: .85; }
-.sc-shop[data-shop="12"] span { background: var(--yellow); outline: 1px solid #000; }
-/* 13 spinning blue/yellow ring, white aqua centre */
-.sc-shop[data-shop="13"]::before { background: conic-gradient(from var(--a), var(--blue) 0 25%, var(--yellow) 0 50%, var(--blue) 0 75%, var(--yellow) 0); animation: shop-spin 2s linear infinite; outline: 1px solid #000; }
-.sc-shop[data-shop="13"]::after { background: linear-gradient(180deg, #fff 0 46%, #e6f2ff 50%, #fff); border: 1px solid #000; }
-/* 14 red + lime + magenta stacked rings, black centre, yellow letters */
-.sc-shop[data-shop="14"]::before { background: var(--hl-red); box-shadow: 0 0 0 3px var(--lime), 0 0 0 6px var(--magenta), 0 0 0 7px #000; }
-.sc-shop[data-shop="14"]::after { background: #000; }
-.sc-shop[data-shop="14"] span { color: var(--yellow); }
-
-
-/* 15 spinning pastel holo ring around a black capsule, white letters */
-.sc-shop[data-shop="15"]::before { background: conic-gradient(from var(--a), #ff9ef9, #9ef7ff, #fff59e, #b9aeff, #9effc0, #ff9ef9); animation: shop-spin 4s linear infinite; }
-.sc-shop[data-shop="15"]::after { background: #000; }
+/* 12 march to april p.4: blue/yellow bars running beside a white page on the magenta rings */
+.sc-shop[data-shop="12"]::before { background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><g fill='none' stroke='%23ff00ff' stroke-width='1.2'><circle cx='11' cy='11' r='9'/><circle cx='11' cy='11' r='5.5'/><circle cx='11' cy='11' r='2'/></g></svg>") 0 0 / 22px 22px; outline: 1px solid var(--magenta); }
+.sc-shop[data-shop="12"]::after { inset: 4px 10px; border-radius: 99px; background: linear-gradient(180deg, var(--blue) 50%, var(--yellow) 0) 8px 0 / 5px 12px repeat-y, linear-gradient(180deg, var(--blue) 50%, var(--yellow) 0) calc(100% - 8px) 0 / 5px 12px repeat-y, #fff; animation: shop-bars 1.2s linear infinite; }
+@keyframes shop-bars { to { background-position: 8px 12px, calc(100% - 8px) -12px, 0 0; } }
+/* 13 march to april p.10: the outlined magenta circles */
+.sc-shop[data-shop="13"]::before { background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='22' height='22'><g fill='none' stroke='%23ff00ff' stroke-width='1.2'><circle cx='11' cy='11' r='9'/><circle cx='11' cy='11' r='5.5'/><circle cx='11' cy='11' r='2'/></g></svg>") 0 0 / 22px 22px; animation: shop-slide 10s linear infinite; outline: 1px solid #000; }
+.sc-shop[data-shop="13"]::after { display: none; }
+.sc-shop[data-shop="13"] span { background: #fff; outline: 2px solid var(--magenta); }
+/* 14 Koons text pages: grey block, magenta edge, green halo */
+.sc-shop[data-shop="14"]::before { background: #d9d9d9; box-shadow: 0 0 0 2px var(--magenta), 0 0 0 6px rgba(170,255,170,.9); border-radius: 10px; }
+.sc-shop[data-shop="14"]::after { display: none; }
+.sc-shop[data-shop="14"] span { color: #d400d4; }
+/* 15 New Orleans: the video's pink and yellow glow around black */
+.sc-shop[data-shop="15"]::before { background: #000; box-shadow: 0 0 0 2px #000, 0 0 0 4px #ff68f8, 0 0 0 6px #ffff8c; }
+.sc-shop[data-shop="15"]::after { display: none; }
 .sc-shop[data-shop="15"] span { color: #fff; }
-/* 16 neon: black with green inner ring, magenta outer ring, green letters */
-.sc-shop[data-shop="16"]::before { background: #000; box-shadow: 0 0 0 2px var(--green), 0 0 0 4px #000, 0 0 0 6px var(--magenta); }
-.sc-shop[data-shop="16"]::after { inset: 3px; background: #000; border: 1px solid var(--green); }
-.sc-shop[data-shop="16"] span { color: var(--green); }
-/* 17 horizontal op-art stripes rolling upward, magenta label */
-.sc-shop[data-shop="17"]::before { background: repeating-linear-gradient(180deg, #000 0 4px, #fff 0 8px); animation: shop-scroll 1.5s linear infinite; outline: 2px solid #000; }
+/* 16 car talks: horizontal stripes rolling, as the frame's margins */
+.sc-shop[data-shop="16"]::before { background: repeating-linear-gradient(180deg, #000 0 4px, #fff 0 8px); animation: shop-scroll 1.5s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="16"]::after { display: none; }
+.sc-shop[data-shop="16"] span { background: #fff; outline: 1px solid #000; border-radius: 0; }
+/* 17 Deepfakes slides: white with the red outlined title look */
+.sc-shop[data-shop="17"]::before { background: #fff; border: 2px solid #e60000; outline: 1px solid #e60000; outline-offset: 2px; border-radius: 2px; }
 .sc-shop[data-shop="17"]::after { display: none; }
-.sc-shop[data-shop="17"] span { background: var(--magenta); color: #fff; outline: 1px solid #000; }
-/* 18 pink/white checker, yellow ring, lime label */
-.sc-shop[data-shop="18"]::before { background: conic-gradient(#ffd1ff 25%, #fff 0 50%, #ffd1ff 0 75%, #fff 0) 0 0 / 10px 10px; box-shadow: 0 0 0 3px var(--yellow), 0 0 0 4px #000; animation: shop-scroll 3s linear infinite; }
+.sc-shop[data-shop="17"] span { color: #fff; -webkit-text-stroke: .7px #e60000; font-weight: 500; letter-spacing: .04em; }
+/* 18 cheers stickers: a magenta cut-out with its white die-cut edge on lime */
+.sc-shop[data-shop="18"]::before { background: var(--lime); outline: 1px solid #000; }
 .sc-shop[data-shop="18"]::after { display: none; }
-.sc-shop[data-shop="18"] span { background: var(--lime); outline: 1px solid #000; }
-/* 19 orange-red-yellow flame stripes sliding, white label */
-.sc-shop[data-shop="19"]::before { background: repeating-linear-gradient(-45deg, var(--hl-red) 0 6px, var(--hl-orange) 0 12px, var(--yellow) 0 18px) 0 0 / 200% 100%; animation: shop-slide 3s linear infinite; outline: 2px solid #000; }
-.sc-shop[data-shop="19"]::after { display: none; }
-.sc-shop[data-shop="19"] span { background: #fff; outline: 1px solid #000; }
-/* 20 blue/white checker scrolling, red label */
-.sc-shop[data-shop="20"]::before { background: conic-gradient(var(--blue) 25%, #fff 0 50%, var(--blue) 0 75%, #fff 0) 0 0 / 12px 12px; animation: shop-scroll 2.5s linear infinite; outline: 2px solid #000; }
+.sc-shop[data-shop="18"] span { background: var(--magenta); color: #fff; border-radius: 3px; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #000; }
+/* 19 Aqua pink gel inside the old Apple rainbow */
+.sc-shop[data-shop="19"]::before { background: linear-gradient(180deg, #61bb46 0 16.6%, #fdb827 0 33.3%, #f5821f 0 50%, #e03a3e 0 66.6%, #963d97 0 83.3%, #009ddc 0); }
+.sc-shop[data-shop="19"]::after { background: linear-gradient(180deg, rgba(255,255,255,.9) 0 46%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #ff9ef9, #ff2cf3 55%, #ffc4fb); border: 1px solid #a0009a; }
+/* 20 Journal Entries p.26–27: yellow diamonds on magenta, chrome label */
+.sc-shop[data-shop="20"]::before { background: var(--magenta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M5 1 9 5 5 9 1 5Z' fill='%23ffff00' stroke='%23000' stroke-width='.8'/%3E%3C/svg%3E") 0 0 / 10px 10px; animation: shop-scroll 2s linear infinite; outline: 2px solid #000; }
 .sc-shop[data-shop="20"]::after { display: none; }
-.sc-shop[data-shop="20"] span { background: var(--hl-red); color: #fff; outline: 1px solid #000; }
-/* 21 double chevron: black around yellow, sliding magenta stripes inside */
-.sc-shop[data-shop="21"]::before { border-radius: 0; background: #000; clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%); }
-.sc-shop[data-shop="21"]::after { inset: 3px; border-radius: 0; background: repeating-linear-gradient(90deg, var(--yellow) 0 6px, var(--magenta) 0 9px) 0 0 / 200% 100%; animation: shop-slide 5s linear infinite;
-  clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0 50%); }
-.sc-shop[data-shop="21"] span { background: var(--yellow); outline: 1px solid #000; }
-/* 22 riso duotone: lilac and lime halves, magenta and blue rings */
-.sc-shop[data-shop="22"]::before { background: linear-gradient(90deg, var(--lilac) 50%, var(--lime) 0); box-shadow: 0 0 0 2px var(--magenta), 0 0 0 4px var(--blue), 0 0 0 5px #000; }
+.sc-shop[data-shop="20"] span { background: linear-gradient(180deg, #fff, #9a9a9a 55%, #f0f0f0); outline: 1px solid #000; }
+/* 21 Horoscopes p.69: the orange octagon wall, yellow title-bar label */
+.sc-shop[data-shop="21"]::before { background: url(../img/tile-horo3.jpg) center / 140px auto; animation: shop-slide 14s linear infinite; outline: 1px solid #000; }
+.sc-shop[data-shop="21"]::after { display: none; }
+.sc-shop[data-shop="21"] span { background: #ffd22e; outline: 2px solid var(--magenta); }
+/* 22 Journal Entries p.28–29: the dark wall, pink pill with yellow ring */
+.sc-shop[data-shop="22"]::before { background: url(../img/tile-journal3.jpg) 0 0 / 120px auto; animation: shop-scroll 6s linear infinite; outline: 1px solid #000; }
 .sc-shop[data-shop="22"]::after { display: none; }
-.sc-shop[data-shop="22"] span { background: #fff; outline: 1px solid #000; }
-/* 23 Aqua pink gel inside a spinning rainbow, green letters */
-.sc-shop[data-shop="23"]::before { background: conic-gradient(from var(--a), var(--hl-red), var(--hl-orange), var(--yellow), var(--green), var(--blue), var(--magenta), var(--hl-red)); animation: shop-spin 2.5s linear infinite; }
-.sc-shop[data-shop="23"]::after { background: linear-gradient(180deg, rgba(255,255,255,.9) 0 46%, rgba(255,255,255,0) 50%), linear-gradient(180deg, #ff9ef9, #ff2cf3 55%, #ffc4fb); border: 1px solid #a0009a; }
-/* 24 the journal pattern wall: yellow diamonds on magenta, chrome label */
-.sc-shop[data-shop="24"]::before { background: var(--magenta) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M5 1 9 5 5 9 1 5Z' fill='%23ffff00' stroke='%23000' stroke-width='.8'/%3E%3C/svg%3E") 0 0 / 10px 10px; animation: shop-scroll 2s linear infinite; outline: 2px solid #000; }
-.sc-shop[data-shop="24"]::after { display: none; }
-.sc-shop[data-shop="24"] span { background: linear-gradient(180deg, #fff, #9a9a9a 55%, #f0f0f0); outline: 1px solid #000; }
+.sc-shop[data-shop="22"] span { background: #ffd1ff; outline: 2px solid #000; box-shadow: 0 0 0 4px var(--yellow), 0 0 0 5px #000; }
 
 .sc-shop[data-shop]:hover span { background: var(--yellow) !important; color: #000 !important; outline: 1px solid #000; }
 @media (prefers-reduced-motion: reduce) { .sc-shop[data-shop]::before, .sc-shop[data-shop]::after { animation: none !important; } }
