@@ -14,3 +14,8 @@ body { background: #fff; color: #000; }
 .shops li { display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid #000; margin: 0 !important; }
 .shops li span:last-child { text-align: right; }
 @media (max-width: 560px) { .shops li { grid-template-columns: 1fr; gap: 2px; } .shops li span:last-child { text-align: left; } }
+
+/* page heading: the maggie/<page> tag, as on About */
+.info h1.slash { font: 400 30px/1.2 var(--serif); margin: 0 0 30px; grid-column: 1 / -1; }
+.info h1.slash .hl { padding: .05em .3em; }
+.info h1.slash u { font-size: 20px; text-underline-offset: 3px; }
