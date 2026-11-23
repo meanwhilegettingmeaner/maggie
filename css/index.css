@@ -486,7 +486,7 @@ body[data-now="editors-note"] .wall-layer[data-cat="editors-note"] { background:
   animation: pop .35s cubic-bezier(.2,1.6,.4,1) forwards; animation-delay: var(--d);
 }
 @keyframes pop { to { transform: rotate(var(--r)) scale(1); opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .chaos img { animation: none; opacity: 1; transform: rotate(var(--r)); } }
+@media (prefers-reduced-motion: reduce) { .chaos img { animation: none; opacity: 1; transform: none; } }
 
 /* ---------- doc language on the home page ---------- */
 .banner { display: flex; height: 92px; overflow: hidden; margin: 0 calc(-1 * clamp(40px, 3.4vw, 54px)) 0; }
@@ -847,18 +847,15 @@ footer.tp-pills { position: static; padding-top: 14px; }
 }
 .post[data-cat="review"] { padding-left: 74px !important; padding-right: 74px !important; padding-top: 66px !important; padding-bottom: 60px !important; }
 
-/* cheers cut-outs: sticker pop — white die-cut edge, slapped down at an angle, tiny settle */
+/* cheers cut-outs: sticker pop — white die-cut edge; they simply appear one after another, straight, no zoom or rotation */
 .chaos img {
   filter: drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff)
           drop-shadow(1px 2px 1px rgba(0,0,0,.35));
-  transform-origin: 30% 20%;
-  animation: sticker .42s cubic-bezier(.3,1.4,.5,1) forwards !important; animation-delay: var(--d) !important;
+  transform: none !important;
+  animation: sticker .01s steps(1) forwards !important; animation-delay: var(--d) !important;
 }
-@keyframes sticker {
-  0%   { opacity: 0; transform: translate(6px, -10px) rotate(calc(var(--r) + 14deg)) scale(1.18); }
-  55%  { opacity: 1; transform: translate(0, 1px) rotate(calc(var(--r) - 2deg)) scale(.97); }
-  100% { opacity: 1; transform: rotate(var(--r)) scale(1); }
-}
+@keyframes sticker { from { opacity: 0; } to { opacity: 1; } }
+.chaos img { --r: 0deg; }
 
 /* the editor's note now shares the Conversation category: keep car talks' black/white swap off it */
 .post.en, .post.en:is(:hover,:focus-within,.is-on) { --ink: #000 !important; --paper: #fff !important; color: #000 !important; }
