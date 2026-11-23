@@ -60,7 +60,7 @@ const CATS = [
 
   // ---- buttons: every pill button on the site wears one of these styles, a new one on each visit ----
   const BTN_N = 30;
-  const BTN_SEL = ".sc-shop, .order, .foot-form button, .tp-pl, .enter, a.more";
+  const BTN_SEL = ".sc-shop, .order, .foot-form button, .enter, a.more";
   window.maggieButtons = () => document.querySelectorAll(BTN_SEL).forEach(b => {
     if (b.dataset.btn) return;
     // wrap loose text so patterned styles can sit a white label on top

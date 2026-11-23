@@ -270,3 +270,7 @@ a.more[data-btn] { display: inline-flex; align-items: center; gap: 8px; padding:
 
 /* size menu: no yellow ring when selected */
 .size-ctl:focus-within, .sc-sz:focus-within { box-shadow: none !important; outline: none !important; }
+
+/* playlist pill stays plain black and white */
+.tp-pl { background: #fff !important; color: #000 !important; border: 1px solid #000 !important; outline: none !important; }
+.tp-pl:hover { background: #000 !important; color: #fff !important; }
