@@ -51,7 +51,7 @@ const CATS = [
   };
   const pick = a => a[Math.floor(Math.random() * a.length)];
   window.maggieTone = () => {
-    [[".nav-row:first-child a:not(.nav-logo)", "flat"], ["a.hl-y, .info h2 span, .foot-grid > div:nth-of-type(3) h3", "flat"]]
+    [["a.hl-y, .info h2 span, .foot-grid > div:nth-of-type(3) h3", "flat"]]
       .forEach(([sel, kind]) => document.querySelectorAll(sel).forEach(el => {
         if (!el.dataset.tone) { const t = pick(TONES[kind]); if (t !== 1) el.dataset.tone = t; else el.dataset.tone = "1"; }
       }));

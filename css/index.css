@@ -860,7 +860,7 @@ footer.tp-pills { position: static; padding-top: 14px; }
 /* the editor's note now shares the Conversation category: keep car talks' black/white swap off it */
 .post.en, .post.en:is(:hover,:focus-within,.is-on) { --ink: #000 !important; --paper: #fff !important; color: #000 !important; }
 .post.en :is(p, .meta, .more, .en-txt) { color: #000 !important; }
-.post.en .meta a.hl { color: #fff !important; }
+.post.en .meta a.hl { color: #000 !important; }
 
 /* ---------- daily horoscope: more versions in the doc language (red pill heading family) ---------- */
 .daily-box[data-v="1"] .red-h, .daily-box[data-v="6"] .red-h, .daily-box[data-v="7"] .red-h, .daily-box[data-v="8"] .red-h,
@@ -957,3 +957,4 @@ footer.tp-pills { position: static; padding-top: 14px; }
 
 
 .sc-shop { justify-content: center; }
+.post .meta a.hl-l, .post[data-cat="conversation"] .meta a.hl-l { background: var(--lilac) !important; color: #000 !important; }

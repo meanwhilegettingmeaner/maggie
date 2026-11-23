@@ -37,5 +37,5 @@ body { background: #000; color: #fff; }
 .track video { max-height: calc(100svh - 300px); }
 /* menu on black: text on light tags is black, Conversations gets a white outline */
 .nav-row a { color: #000; } .nav .nav-logo { color: #fff; }
-.nav-row.cats a:is(:nth-child(9n+2), :nth-child(9n+4), :nth-child(9n+5), :nth-child(9n+7)) { color: #fff; }
-.nav-row.cats a:nth-child(9n+4) { outline: 1px solid #fff; }
+.nav-row.cats a:is(:nth-child(9n+2), :nth-child(9n+5), :nth-child(9n+7)) { color: #fff; }
+.nav-row:first-child a:not(.nav-logo) { outline: 1px solid #fff; }
