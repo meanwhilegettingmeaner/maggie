@@ -43,6 +43,24 @@ const CATS = [
     </div>`;
   (document.querySelector(".nav-slot") || body).prepend(nav);
 
+  // ---- tones: each yellow button or tag gets its own colour/style on every visit ----
+  // flat = tags (plain colours only); full = buttons and circles (adds chrome, bevel, dashed, rings)
+  const TONES = {
+    flat: [1, 2, 3, 5, 6, 7, 8, 9],
+    full: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  };
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  window.maggieTone = () => {
+    [[".nav-row:first-child a:not(.nav-logo)", "flat"], ["a.hl-y, .info h2 span, .foot-grid > div:nth-of-type(3) h3", "flat"],
+     [".size-ctl i, .sc-sz i, .sound .dot, .np-bar button, .foot-form button, .tp-pl, .order i", "full"]]
+      .forEach(([sel, kind]) => document.querySelectorAll(sel).forEach(el => {
+        if (!el.dataset.tone) { const t = pick(TONES[kind]); if (t !== 1) el.dataset.tone = t; else el.dataset.tone = "1"; }
+      }));
+  };
+  maggieTone();
+  addEventListener("DOMContentLoaded", maggieTone);
+  addEventListener("load", maggieTone);
+
   // ---- size menu: 40 / 60 / 80 / 100 scales the content (not the top bar, menu or footer).
   // 80 is the normal size and the default for newcomers. Home has it in the top bar; every
   // other page gets the same control at the right end of the menu. The choice carries across pages.

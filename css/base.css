@@ -164,7 +164,7 @@ html.framed .sound, html.framed .tracks-pop, html.framed .np-bar { display: none
   background: #fff; color: #000; border: 1px solid #000; border-radius: 999px; padding: 5px 14px 5px 6px; font: 13px/1.2 var(--sans); }
 .np-bar[hidden] { display: none; }
 .np-bar button { cursor: pointer; padding: 0; }
-.np-bar button svg { width: 11px; height: 11px; fill: #000; display: block; }
+.np-bar button svg { width: 11px; height: 11px; fill: currentColor; display: block; }
 .np-t { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-transform: uppercase; }
 .np-t a { color: inherit; }
 
@@ -189,3 +189,18 @@ main { zoom: var(--page-zoom, 1); }
 .size-ctl:focus-within { box-shadow: 0 0 0 2px var(--yellow); }
 .nav .size-ctl, .nav .size-ctl select { color: #000; }
 @media (max-width: 640px) { .size-ctl { margin-left: auto; } }
+
+/* ---- tones: every yellow button / tag picks one of these on each visit (js/main.js) ---- */
+[data-tone="2"]  { background: var(--hl-green) !important; color: #000 !important; }
+[data-tone="3"]  { background: var(--magenta) !important; color: #fff !important; }
+[data-tone="4"]  { background: #ffd1df !important; color: #000 !important; outline: 2px solid var(--magenta); outline-offset: 1px; }
+[data-tone="5"]  { background: var(--blue) !important; color: #fff !important; }
+[data-tone="6"]  { background: var(--hl-orange) !important; color: #000 !important; }
+[data-tone="7"]  { background: #000 !important; color: #fff !important; }
+[data-tone="8"]  { background: var(--lime) !important; color: #000 !important; }
+[data-tone="9"]  { background: var(--lilac) !important; color: #000 !important; }
+[data-tone="10"] { background: linear-gradient(180deg, #f4f4f4, #9a9a9a 55%, #e8e8e8) !important; color: #000 !important; outline: 2px solid var(--magenta); outline-offset: -1px; }
+[data-tone="11"] { background: #ddd !important; color: #000 !important; border-color: #fff #555 #555 #fff !important; outline: 1px solid #000; }
+[data-tone="12"] { background: #fff !important; color: #000 !important; outline: 2px dashed #d4a017; outline-offset: 1px; }
+[data-tone="13"] { background: #ffd1ff !important; color: #000 !important; outline: 3px solid var(--yellow); }
+a[data-tone][data-tone]:hover, button[data-tone]:hover { background: linear-gradient(180deg, #ffff8a, var(--yellow)) !important; color: #000 !important; }
