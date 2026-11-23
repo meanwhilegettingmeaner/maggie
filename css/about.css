@@ -3,7 +3,7 @@
 
 body.about-page { background: #ddd; font-family: var(--serif); }
 /* same navigation as every page */
-.about-page .nav { border-bottom: 1px solid #000; }
+.about-page .nav { background: #ddd; }
 
 .collage { position: relative; height: 470px; overflow: hidden; background: #ddd; }
 .collage img { position: absolute; display: block; border: 1px solid #000; }
@@ -83,3 +83,6 @@ body.about-page { background: #ddd; font-family: var(--serif); }
 
 /* no bold anywhere on the About page */
 .about-page, .about-page * { font-weight: 400 !important; }
+
+/* no collage for now: the box starts below the menu */
+.about-page .box { margin-top: 40px !important; }
