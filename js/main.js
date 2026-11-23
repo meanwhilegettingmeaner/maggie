@@ -73,7 +73,10 @@ const CATS = [
   maggieButtons();
   // the Shop box goes maximal: its own wilder set, a new one each visit
   const shop = document.querySelector(".sc-shop");
-  if (shop) shop.dataset.shop = 1 + Math.floor(Math.random() * 25);
+  if (shop) {
+    shop.dataset.shop = 1 + Math.floor(Math.random() * 25);
+    if (Math.random() < 0.65) shop.dataset.still = "";   // moving only on about one visit in three
+  }
   addEventListener("DOMContentLoaded", maggieButtons);
   addEventListener("load", maggieButtons);
   addEventListener("DOMContentLoaded", maggieTone);
