@@ -60,13 +60,15 @@ const CATS = [
 
   // ---- buttons: every pill button on the site wears one of these styles, a new one on each visit ----
   const BTN_N = 30;
-  const BTN_SEL = ".sc-shop, .order, .foot-form button, .enter, a.more";
+  // only Shop, Order by email and the footer Sign up get the colourful looks; each takes a different one
+  const BTN_SEL = ".sc-shop, .order, .foot-form button";
+  const used = new Set();
   window.maggieButtons = () => document.querySelectorAll(BTN_SEL).forEach(b => {
     if (b.dataset.btn) return;
-    // wrap loose text so patterned styles can sit a white label on top
     [...b.childNodes].forEach(n => { if (n.nodeType === 3 && n.textContent.trim()) { const s = document.createElement("span"); s.className = "bl"; s.textContent = n.textContent.trim(); n.replaceWith(s); } });
     b.querySelectorAll(":scope > span:not(.dot):not(.bl)").forEach(s => s.classList.add("bl"));
-    b.dataset.btn = 1 + Math.floor(Math.random() * BTN_N);
+    let v; do { v = 2 + Math.floor(Math.random() * (BTN_N - 1)); } while (used.has(v));   // never the plain white one
+    used.add(v); b.dataset.btn = v;
   });
   maggieButtons();
   addEventListener("DOMContentLoaded", maggieButtons);

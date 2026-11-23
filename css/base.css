@@ -274,3 +274,9 @@ a.more[data-btn] { display: inline-flex; align-items: center; gap: 8px; padding:
 /* playlist pill stays plain black and white */
 .tp-pl { background: #fff !important; color: #000 !important; border: 1px solid #000 !important; outline: none !important; }
 .tp-pl:hover { background: #000 !important; color: #fff !important; }
+
+/* every other button: plain black and white */
+a.more, .enter { display: inline-flex; align-items: center; gap: 8px; background: #fff !important; color: #000 !important; border: 1px solid #000 !important;
+  border-radius: 999px; padding: 5px 16px; font: 14px/1.1 var(--sans) !important; text-decoration: none !important; box-shadow: none !important; }
+.enter { padding: 8px 26px; font-size: 16px !important; }
+a.more:hover, .enter:hover { background: #000 !important; color: #fff !important; }
