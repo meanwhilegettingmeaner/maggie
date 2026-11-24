@@ -60,7 +60,7 @@ const CATS = [
 
   // ---- buttons: every pill button on the site wears one of these styles, a new one on each visit ----
   const BTN_N = 30;
-  // only Shop, Order by email and the footer Sign up get the colourful looks; each takes a different one
+  // only Shop, Buy and the footer Sign up get the colourful looks; each takes a different one
   const BTN_SEL = ".order, .foot-form button";
   const used = new Set();
   window.maggieButtons = () => document.querySelectorAll(BTN_SEL).forEach(b => {
@@ -161,7 +161,7 @@ const CATS = [
   foot.innerHTML = `
     <div class="foot-grid">
       <a class="foot-logo" href="${root}index.html">MAGGIE</a>
-      <div><h3>Print</h3><p>Issue 1, risograph<br><a href="mailto:info@meanwhilegettingmeaner.com">Get a copy</a></p></div>
+      <div><h3>Print</h3><p>Issue 1, risograph<br><a href="${root}shop.html">Get a copy</a></p></div>
       <div><h3>Newsletter</h3>
         <form class="foot-form" data-todo="connect to a newsletter service">
           <label class="sr" for="nl">Email</label>
