@@ -86,3 +86,16 @@ body.about-page { background: #ddd; font-family: var(--serif); }
 
 /* no collage for now: the box starts below the menu */
 .about-page .box { margin-top: 40px !important; }
+
+/* submissions */
+.submit { margin-top: 70px; padding-top: 40px; border-top: 1px solid #000; max-width: 820px; font-size: 18px; line-height: 1.45; }
+.submit h1 { font-size: 20px; margin: 0 0 26px; }
+.submit h3 { font-size: 20px; margin: 38px 0 14px; }
+.submit p { margin: 0 0 12px; }
+.submit a { color: #000; }
+.cats { margin: 0; display: grid; grid-template-columns: 30% 1fr; gap: 14px 16px; }
+.cats dt { margin: 0; }
+.cats dt span { padding: 0 .3em; }
+.cats dd { margin: 0; }
+.submit .sub-btn { margin-top: 18px; text-decoration: none; font-family: var(--sans); }
+@media (max-width: 700px) { .cats { grid-template-columns: 1fr; gap: 4px; } .cats dd { margin-bottom: 12px; } }
